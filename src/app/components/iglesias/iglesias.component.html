@@ -1,0 +1,46 @@
+<!-- <div class="searchbox">
+  <input type="search" class="search" placeholder="search...">
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <span class="material-icons searchicon">
+        search
+      </span>
+    </button>
+</div> -->
+
+<section class="bg_titulo animate__animated animate__fadeIn">
+  <h3 class="titulo"> IGLESIAS</h3>
+  <h6 class="bloque_sub">
+    <p class="sub_titulo">
+      Que habite en ustedes la palabra de Cristo con toda su riqueza: instrúyanse y
+      aconséjense unos a otros con toda sabiduría; canten salmos, himnos y canciones
+      espirituales a Dios, con gratitud de corazón.
+    </p>
+    <p class="sub_titulo verso">
+      COLOSENSES 3:16
+    </p>
+  </h6>
+</section>
+
+<div class="container">
+
+  <swiper
+      [slidesPerView]="1"
+      [spaceBetween]="50"
+      (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange($event)"
+    >
+
+  <ng-template swiperSlide *ngFor="let church of iglesias">
+    <div class="bg">
+      <app-iglesia [iglesia]="church"
+                 class="swiper-slide"
+                  ></app-iglesia>
+    </div>
+  </ng-template>
+  </swiper>
+
+
+</div>
+
+
+<app-footer></app-footer>

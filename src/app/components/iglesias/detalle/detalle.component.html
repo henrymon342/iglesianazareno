@@ -1,0 +1,91 @@
+<section class="section1">
+  <span class="denominacion">IGLESIA DEL NAZARENO</span>
+  <h3 class="nombre"> {{ iglesia.nombre }} </h3>
+
+
+  <span class="zona"> {{ iglesia.zona }} </span>
+</section>
+
+<section class="section2">
+  <!-- src="/assets/imagenes/joven.jpg" -->
+  <img class="imgiglesia" [src]="'http://localhost:3000/'+ imageIglesia.imagePath"  alt="imagen">
+</section>
+
+<section class="section3">
+  <h5 class="subtitulo">PASTOR</h5>
+  <!-- src="/assets/imagenes/joven.jpg" -->
+  <img class="imgpastor"  [src]="'http://localhost:3000/'+ imagePastor.imagePath" alt="imagen">
+  <p class="nombrepastor">{{ pastor.name }}</p>
+</section>
+
+
+<section class="section4">
+
+<div class="flex">
+  <div class="card">
+
+      <h5 class="reunion">FUNDACIÓN</h5>
+      <span class="funda"> {{ iglesia.fundacion | date: 'EEEE, MMMM d, y' : 'en' }} </span>
+  </div>
+
+  <div class="card">
+      <h5 class="reunion ">UBICACIÓN</h5>
+      <a class="material-symbols-outlined icono" [href]="iglesia.ubicacion" target="_blank">
+        pin_drop
+      </a>
+
+  </div>
+
+</div>
+</section>
+
+
+
+<section class="section4">
+  <h4 class="subtitulo servicios">HORARIO DE SERVICIOS</h4>
+
+<div class="flex">
+  <div class="card">
+
+      <h5 class="reunion">CULTO CENTRAL</h5>
+
+      <h4 class="dia">{{ iglesia.diacentral | uppercase }}</h4>
+      <p class="horario">{{ iglesia.horacentralini | date: 'h:mm a' | uppercase }} - {{ iglesia.horacentralfin | date: 'h:mm a' | uppercase}}</p>
+  </div>
+
+  <div class="card">
+      <h5 class="reunion">REUNIÓN DE JÓVENES</h5>
+
+      <h4 class="dia">{{ iglesia.diajni | uppercase }}</h4>
+      <p class="horario">{{ iglesia.horajniini | date: 'h:mm a' | uppercase }} - {{ iglesia.horajnifin | date: 'h:mm a' | uppercase }}</p>
+  </div>
+
+</div>
+</section>
+
+
+
+
+
+
+<h4 class="subtitulo servicios">DIRECTIVA</h4>
+
+<div class="grid">
+  <div class="data">
+      <h4 class="rango">SUPERINTENDENTE DE DNI</h4>
+      <p>{{ iglesia.superdni }} </p>
+  </div>
+
+  <div class="data">
+      <h4 class="rango">PRESIDENTE DE JNI</h4>
+      <p>{{ iglesia.presimni }} </p>
+  </div>
+
+  <div class="data">
+      <h4 class="rango">PRESIDENTE DE MNI</h4>
+      <p>{{ iglesia.presijni }} </p>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

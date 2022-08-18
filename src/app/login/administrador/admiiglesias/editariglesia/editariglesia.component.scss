@@ -1,0 +1,110 @@
+@use '@angular/material' as mat;
+
+.container{
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  background: #F9F9F9;
+  // margin: 2em 12em;
+  // height: auto;
+  // background-color: rgb(255, 255, 255);
+  .form{
+    width: 80%;
+    background: white;
+    padding: 3em 10em;
+    border-radius: 10px;
+
+    .subtitulo{
+      padding: 1em 0 .5em 0em;
+      text-align: start;
+      background: white;
+      color: black;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .divider{
+      padding: 1em;
+    }
+
+    .espacioArri{
+      padding-top: 3em;
+    }
+
+    .fila{
+      display: grid;
+
+      .label{
+        padding: 6px;
+      }
+
+      .input{
+        width: 60%;
+      }
+      .fundacion{
+        width: 40%;
+      }
+      .centrar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .dia{
+          width: 40%;
+
+        }
+      }
+
+    }
+
+    .horario{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .bg-boton{
+      display: flex;
+      justify-content: flex-end;
+      padding: 2em 1em;
+    }
+  }
+
+
+}
+
+
+
+.imagen{
+  width: 20em;
+}
+
+
+.titulo{
+  padding: 1em 0;
+  text-align: center;
+  background: #5AA9E6;
+  color: white;
+}
+
+.titulograde{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+
+
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}
+
+
+

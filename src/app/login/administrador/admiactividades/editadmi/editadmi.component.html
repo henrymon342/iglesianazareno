@@ -1,0 +1,199 @@
+
+<div class="animate__animated animate__fadeInUp">
+  <h3 class="titulo titulograde"> EDITAR ADMINISTRADOR </h3>
+
+<div class="container">
+  <form class="form elevacion" [formGroup]="form" (change)="isGood()">
+
+    <h5 class="subtitulo"> TIPO DE ADMINISTRADOR</h5>
+    <mat-divider class="divider"></mat-divider>
+
+    <div class="fila">
+      <div class="centrar">
+        <mat-form-field appearance="fill" class="box_select">
+          <mat-label>tipo </mat-label>
+          <mat-select  class="select" formControlName="type" (selectionChange)='isGood()'>
+            <mat-option *ngFor="let type of TYPEUSER" [value]=type>
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+      <div class="fila animate__animated animate__fadeInUp" >
+        <label class="label">Ministerio</label>
+        <mat-radio-group
+          class="radio_group"
+          formControlName="ministerio"
+          (change)="isGood()"
+          [disabled]="!isActivity()"
+          >
+          <mat-radio-button class="example-radio-button" *ngFor="let min of MINISTERIOS" [value]=min>
+            {{min}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+    <h5 class="titulo subtitulo">DATOS PERSONALES </h5>
+    <mat-divider class="divider"></mat-divider>
+
+
+    <div class="fila">
+      <label class="label">Nombre </label>
+      <mat-form-field class="box_input" appearance="fill">
+        <mat-label>nombre</mat-label>
+        <input formControlName="name"
+              type="text"
+              matInput
+              placeholder="name"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+    <div class="fila">
+      <label class="label">Apellido</label>
+      <mat-form-field class="box_input" appearance="fill">
+        <mat-label>apellido</mat-label>
+        <input formControlName="lastname"
+              type="text"
+              matInput
+              placeholder="apellido"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+    <div class="fila">
+      <label class="label">Cargo </label>
+      <mat-form-field class="box_input" appearance="fill">
+        <mat-label>cargo</mat-label>
+        <input formControlName="cargo"
+              type="text"
+              matInput
+              placeholder="cargo"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <mat-card class="miembroen"><span>Actualmente es miembro en: {{ form.value.miembroen }}</span></mat-card>
+
+
+  <div class="emerge">
+    <mat-radio-group formControlName="pertenece" [(ngModel)]="pertence" (change)="isGood()">
+      <div class="fila">
+        <label class="label">Lugar donde es miembro</label>
+        <div class="pertenencia">
+          <mat-radio-button class="example-margin" value="iglesia">Iglesia</mat-radio-button>
+          <mat-form-field appearance="fill" class="box_select" >
+            <mat-label>iglesia</mat-label>
+            <mat-select
+                        class="select"
+                        formControlName="iglesia"
+                        (selectionChange)='isGood()'
+                         >
+              <mat-option *ngFor="let iglesia of IGLESIAS" [value]=iglesia [disabled]="select_disabled">
+                {{ iglesia }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="pertenencia" >
+          <mat-radio-button class="example-margin" value="otro">Otro</mat-radio-button>
+
+            <mat-form-field class="box_input" appearance="fill">
+
+              <mat-label>especificación</mat-label>
+              <input formControlName="especificacion"
+              type="text"
+              matInput
+              placeholder="especificacion"
+              class="input"
+              (change)="isGood()"
+              [readonly]="!select_disabled"
+              >
+            </mat-form-field>
+      </div>
+    </mat-radio-group>
+  </div>
+
+
+
+    <h5 class="titulo subtitulo"> AUTENTICACIÓN </h5>
+    <mat-divider class="divider"></mat-divider>
+
+
+
+    <div class="fila">
+      <label class="label">Username </label>
+      <mat-form-field class="box_input_auth" appearance="fill">
+        <mat-label>username</mat-label>
+        <input formControlName="username"
+              type="text"
+              matInput
+              placeholder="username"
+              class="input"
+              (change)="isGood()"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <div class="fila">
+
+
+      <label class="label">Password </label>
+      <mat-form-field class="box_input_auth" appearance="fill">
+        <mat-label>password</mat-label>
+        <input formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              placeholder="password"
+              class="input"
+              (change)="isGood()"
+              >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="fila">
+      <label class="label">confirmar password </label>
+      <mat-form-field class="box_input_auth" appearance="fill">
+        <mat-label>password</mat-label>
+        <input formControlName="password_confirm"
+              type="password"
+              matInput
+              placeholder="confirmar password"
+              class="input"
+              (change)="isGood()"
+              >
+      </mat-form-field>
+    </div>
+
+    <mat-card class="wrong animate__animated animate__fadeInUp"   *ngIf="password_wrong">
+      <span>la contraseña no coincide</span>
+    </mat-card>
+
+    <div class="botones">
+        <button mat-raised-button color="primary"
+                (click)="alertaEditar()"
+                class="boton"
+                [disabled]="isDisabled">
+                EDITAR</button>
+    </div>
+  </form>
+
+
+</div>
+</div>
+
+

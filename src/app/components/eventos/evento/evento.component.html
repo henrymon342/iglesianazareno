@@ -1,0 +1,47 @@
+<div class="container animate__animated animate__fadeInUp">
+  <div class="bloque1">
+    <div class="mes" *ngIf="evento.tipofecha == 'Solo un día'"><span> {{evento.fecha | date:'EEEE': 'en' | uppercase }} </span></div>
+    <div class="mes" *ngIf="evento.tipofecha != 'Solo un día'"><span> {{evento.fechaini| date:'EEEE': 'en' | uppercase }}</span></div>
+
+    <div class="dia" *ngIf="evento.tipofecha == 'Solo un día'"><span>{{evento.fecha| date:'dd': 'en' | uppercase }}</span></div>
+
+    <div class="dia" *ngIf="evento.tipofecha != 'Solo un día'">
+      <span>
+        {{evento.fechaini| date:'dd': 'en' | uppercase }}
+        -
+        {{evento.fechafin| date:'dd': 'en' | uppercase }}
+      </span>
+    </div>
+  </div>
+  <div class="bloque2" [ngStyle]="asignarColor()">
+    <div class="nombre">
+      <span > {{ evento.titulo }} </span>
+    </div>
+    <div class="seccion">
+      <div class="realizado" *ngIf="hasFinished">
+        <marquee class="realizado_texto"> REALIZADO</marquee>
+      </div>
+      <ng-container *ngIf="!hasFinished">
+        <span>Oración</span>
+      <span>Alabanza</span>
+      <span>Dínamicas</span>
+      </ng-container>
+    </div>
+    <div class="ministerio">
+      <span>  {{evento.ministerio}}  </span>
+    </div>
+  </div>
+  <div class="bloque3">
+    <div class="modalidad">
+      <span >  {{evento.modalidad}}  </span>
+      <span >||</span>
+      <span > {{evento.lugar}} </span>
+    </div>
+    <div class="hora">
+      <span> {{evento.horaini | date: 'h:mm a' | uppercase }} - {{evento.horafin | date: 'h:mm a' | uppercase }} </span>
+    </div>
+    <div class="btn">
+      <span class="boton" [routerLink]="['/detalleproevento', evento.id]">ver más</span>
+    </div>
+  </div>
+</div>

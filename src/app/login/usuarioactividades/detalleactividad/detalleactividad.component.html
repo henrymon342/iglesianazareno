@@ -1,0 +1,59 @@
+
+<div class="animate__animated animate__fadeIn">
+  <h3 class="titulo titulograde"> DETALLE DE EVENTO </h3>
+
+<div class="container elevacion">
+
+  <div class="fila">
+    <label id="example-radio-group-label">Título</label>
+    <span>{{ evento.titulo }} </span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Ministerio</label>
+    <span>{{ evento.ministerio }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Modalidad</label>
+    <span>{{ evento.modalidad }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Lugar</label>
+    <span>{{ evento.lugar }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Fecha</label>
+    <span *ngIf="evento.fechaini">{{ evento.fechaini| date:'shortDate' }} - {{ evento.fechafin| date:'shortDate' }}</span>
+    <span *ngIf="!evento.fechaini">{{ evento.fecha | date:'shortDate'}}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Hora</label>
+    <span>{{ evento.horaini | date:'shortTime'}} - {{ evento.horafin | date:'shortTime'}}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Encargado</label>
+    <span>{{ evento.encargado }}</span>
+  </div>
+
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Descripción</label>
+    <span>{{ evento.descripcion }}</span>
+  </div>
+
+
+  <div class="fila">
+    <button mat-raised-button color="warn" (click)="alertaEliminar()">Eliminar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/login/usuarioactividades/editaractividad', evento.id]">
+      Editar
+    </button>
+  </div>
+
+</div>
+
+</div>

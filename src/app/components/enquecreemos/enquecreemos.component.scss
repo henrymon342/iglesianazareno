@@ -1,0 +1,210 @@
+.bg_titulo{
+  background-image: url('/assets/bgs/bg_recursos.jpg');
+
+  width: 100%;
+  height: 400px;
+  background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+  background-attachment: fixed;
+  // padding: 6em;
+  text-align: center;
+  color: white;
+
+  display: flex;
+
+
+  &:before {
+    content:'';
+    position: absolute;
+          top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  .titulo{
+    font-size: 60px;
+    font-weight: 900;
+    position: relative;
+    // font-family: 'Lalezar', cursive;
+    display: flex;
+    align-items: center;
+    padding: 0 3em;
+  }
+
+  .bloque_sub{
+    // padding: 2em 2em;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .sub_titulo{
+      background: rgba(150, 96, 75, 0.618);
+      border: 2px solid rgb(255, 255, 255);
+      // background: linear-gradient(90deg, rgb(109, 109, 109) 0%, rgb(73, 73, 73) 100%);
+      // background-image: url('/assets/bgs/bg_texto.jpg');
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+      padding: 3em 4em;
+      width: 100%;
+      background-size: cover;
+      // background-attachment: fixed;
+      position: relative;
+      color: white;
+      // opacity: .7;
+      line-height: 2em;
+      font-size: 18px;
+      &::before {
+        content: "";
+        position: relative;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(0,0,0,0.3);
+
+      }
+    }
+
+    .verso{
+      padding-top: .5em;
+      font-weight: 500;
+    }
+  }
+}
+
+
+.creemos{
+  padding: 2em;
+  display: flex;
+  justify-content: space-around;
+  // background: rgb(35, 40, 66);
+
+  .card{
+    color: white;
+
+    background-image: url('/assets/imagenes/bg_credo1.jpg');
+    background-size: cover;
+    // background-attachment: fixed;
+    width: 30%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    span{
+      font-size: 64px;
+    }
+
+    h6{
+      font-size: 24px;
+      color: white;
+    }
+  }
+}
+
+
+.mision{
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card_mision{
+    width: 70%;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .title_mision{
+      width: 60%;
+      background: #313131;
+      padding: 1em;
+      color: white;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .text_mision{
+      position: relative;
+      bottom: 1em;
+      z-index: -2;
+      padding: 4em;
+      background: linear-gradient(90deg, rgba(66, 63, 255, 0.336) 0%, rgba(227, 19, 255, 0.329) 70%);
+      font-size: 1.2em;
+      text-align: justify;
+      color: white;
+    }
+  }
+}
+
+
+.container{
+  background-image: url('/assets/bgs/bg_texto.jpg');
+  position: relative;
+  z-index: -23;
+
+}
+
+
+.texto{
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  height: auto;
+  width: 100%;
+  padding: 0 2em 2em 2em;
+
+
+  .img_texto{
+    width: 100%;
+  }
+
+  .bloque_text{
+    width: 100%;
+    padding: 2em 3em;
+    text-align: center;
+    border: 10px double rgba(35, 40, 66, 0.733);
+    background: rgb(255, 255, 255);
+    color: rgb(35, 40, 66);
+    font-size: 2em;
+
+    span{
+      font-size: .6em;
+
+    }
+
+    .text_green{
+      color: rgb(93, 209, 83);
+    }
+
+    .text_morado{
+      color: rgb(150, 54, 179);
+    }
+
+    .text_blue_clear{
+      color: rgb(59, 155, 219);
+    }
+
+    .text_orange{
+      color: rgb(255, 162, 56);
+    }
+
+    .red_black{
+      color: rgb(202, 13, 13);
+    }
+
+    p{
+      line-height: 2em;
+      font-size: .6em;
+
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@use '@angular/material' as mat;
+
+.container{
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 2em 0;
+
+  background: #F9F9F9;
+  // margin: 2em 12em;
+  // height: auto;
+  // background-color: #e5f9e0;
+  .form{
+    width: 80%;
+    background: white;
+    padding: 2em 6em;
+    border-radius: 10px;
+
+    .subtitulo{
+      padding: 1em 0 .5em 0em;
+      text-align: start;
+      background: white;
+      color: black;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .divider{
+      padding: 1em;
+    }
+
+
+    .fila{
+      display: grid;
+
+      .centrar{
+        display: flex;
+        justify-content: center;
+      }
+
+      .label{
+        padding: 6px;
+      }
+
+      .box_input{
+        width: 60%;
+      }
+
+      .box_input_auth{
+        width: 40%;
+        justify-self: flex-start;
+      }
+
+      .box_select{
+        width: 50%;
+      }
+
+      .radio_group{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 1em;
+      }
+    }
+
+    .wrong{
+      background-color: #ffbcbc;
+    }
+
+    .miembroen{
+      background: #F9F9F9;
+      padding: 1em;
+    }
+
+    .botones{
+      padding: 4em 1em;
+      text-align: center;
+      .boton{
+        width: 50%;
+      }
+    }
+
+  }
+
+
+}
+
+
+.titulo{
+  padding: 1em 0;
+  text-align: center;
+  background: #F9F9F9;
+  // color: white;
+}
+
+.titulograde{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.pertenencia{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .checkbox{
+    padding-left: 4em;
+  }
+
+  .box_input{
+    width: 60%;
+    padding-left: 4em;
+  }
+
+
+}
+
+.emerge{
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}
+
+
+
+
+

@@ -1,0 +1,176 @@
+<div class="animate__animated animate__fadeIn">
+
+  <div class="container">
+
+    <form class="form elevacion" [formGroup]="form" (change)="isGood()">
+
+      <h3 class="titulo"> CREAR ADMINISTRADOR </h3>
+
+    <div class="field">
+      <label class="label"> Tipo de administrador</label>
+      <mat-form-field appearance="outline" class="box_select">
+        <mat-select  class="select" placeholder="tipo" formControlName="type" (selectionChange)='isGood()'>
+          <mat-option *ngFor="let type of TYPEUSER" [value]=type>
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <ng-container *ngIf="isActivity()">
+      <div class="field animate__animated animate__fadeInUp ">
+        <label class="label">Ministerio</label>
+        <mat-radio-group
+          class="radio_group"
+          formControlName="ministerio"
+          (change)="isGood()"
+          >
+          <mat-radio-button *ngFor="let min of MINISTERIOS" [value]=min>
+            {{min}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </ng-container>
+
+    <h5 class="subtitulo">DATOS PERSONALES </h5>
+
+    <div class="field">
+      <label class="label">Nombre </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="name"
+              type="text"
+              matInput
+              placeholder="nombre"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Apellido</label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="lastname"
+              type="text"
+              matInput
+              placeholder="apellido"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="field">
+      <label class="label">Cargo </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="cargo"
+              type="text"
+              matInput
+              placeholder="cargo"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="field">
+      <label class="label">Lugar de membresía</label>
+        <mat-radio-group class="radio_group"  formControlName="pertenece" [(ngModel)]="pertenece" (change)="isGood()">
+          <mat-radio-button class="example-margin" value="iglesia">Iglesia</mat-radio-button>
+          <mat-radio-button class="example-margin" value="otro">Otro</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field appearance="outline" class="box_select animate__animated animate__fadeIn" *ngIf="pertenece == 'iglesia'" >
+          <mat-label>iglesia</mat-label>
+          <mat-select
+                      class="select"
+                      formControlName="iglesia"
+                      (selectionChange)='isGood()'
+                       >
+            <mat-option *ngFor="let iglesia of IGLESIAS" [value]=iglesia [disabled]="select_disabled">
+              {{ iglesia }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="box_input animate__animated animate__fadeIn" *ngIf="pertenece == 'otro'" >
+
+          <mat-label>especificación</mat-label>
+          <input formControlName="especificacion"
+          type="text"
+          matInput
+          placeholder="especificacion"
+          class="input"
+          (change)="isGood()"
+          [readonly]="!select_disabled"
+          >
+        </mat-form-field>
+    </div>
+
+
+    <h5 class="subtitulo">AUTENTICACIÓN</h5>
+
+
+    <div class="field">
+      <label class="label">Username </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="username"
+              type="text"
+              matInput
+              placeholder="username"
+              class="input"
+              (change)="isGood()"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Password </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              placeholder="password"
+              class="input"
+              (change)="isGood()"
+              >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="field">
+      <label class="label">confirmar password </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <input formControlName="password_confirm"
+              type="password"
+              matInput
+              placeholder="confirmar password"
+              class="input"
+              (change)="isGood()"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <div class="field">
+        <button mat-raised-button color="primary"
+                (click)="alertaAdministrador()"
+                class="boton box_input"
+                [disabled]="isDisabled">
+                Crear</button>
+    </div>
+
+
+  </form>
+    <div class="bg"></div>
+
+
+</div>
+
+
+</div>

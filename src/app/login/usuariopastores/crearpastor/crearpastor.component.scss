@@ -1,0 +1,107 @@
+@use '@angular/material' as mat;
+
+
+
+
+.container{
+  padding: 4% 8%;
+  background: #F9F9F9;
+
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+  .form{
+    background: #ffffff;
+    padding: 2em 8em;
+
+
+    .titulo{
+      padding: 1em 0 2em 0;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 500;
+      width: 90%;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    .subtitulo{
+      padding: 1em 0 2em 0;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+      width: 90%;
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+    }
+
+
+    .field{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1em;
+      .label{
+        padding-bottom: .5em;
+      }
+
+      .box_select{
+        width: 90%;
+      }
+
+      .box_input{
+        width: 90%;
+      }
+
+      .radio_group{
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        padding: 1em 0;
+      }
+
+      .group_checks{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        padding: 1em;
+      }
+    }
+
+  }
+
+
+  .bg{
+    background: #003049;
+    background-image: url(/assets/bgs/bg_iglesias.jpg);
+    background-size: cover;
+    position: relative;
+
+    &:before {
+      content:'';
+      position: absolute;
+            top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.4);
+    }
+  }
+
+}
+
+
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}
+
+
+
+
+

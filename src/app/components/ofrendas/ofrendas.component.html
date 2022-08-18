@@ -1,0 +1,93 @@
+
+<div class="container animate__animated animate__fadeIn">
+
+<section class="bg_titulo">
+  <h3 class="titulo"> TUS OFRENDAS SON AGRADECIMIENTO A DIOS  </h3>
+  <h6 class="bloque_sub">
+    <p class="sub_titulo">
+      Tu donación para el evangelismo mundial apoya a
+      ministerios vitales de la Iglesia del Nazareno.
+      Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre.
+    </p>
+    <p class="sub_titulo">
+      2 Corintios 9:7
+    </p>
+  </h6>
+</section>
+
+
+<section class="peticiones">
+  <h3 class="peticiones_title"> Donaciones </h3>
+
+  <form class="form" [formGroup]="formdata" (change)="isGood()">
+
+
+    <div class="grupo">
+      <mat-form-field class="nombre" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Placeholder">
+      </mat-form-field>
+
+      <mat-form-field class="apellido" appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="apellido" placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+
+    <div class="grupo2">
+      <mat-form-field class="correo" appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput type="email" formControlName="correo" placeholder="Placeholder">
+      </mat-form-field>
+
+      <mat-form-field class="ciudad" appearance="outline">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="ciudad" placeholder="Placeholder">
+      </mat-form-field>
+
+      <label for="">Código postal</label>
+      <mat-form-field class="cod_postal" appearance="outline">
+        <mat-label>Código postal</mat-label>
+        <input matInput formControlName="cod_postal" placeholder="Placeholder">
+      </mat-form-field>
+
+      <!-- <mat-form-field class="monto" appearance="outline">
+        <mat-label>Cantidad donación</mat-label>
+        <input matInput type="number" formControlName="monto" placeholder="Placeholder">
+      </mat-form-field> -->
+
+      <mat-form-field class="monto" appearance="outline" floatLabel="always">
+        <mat-label>Cantidad donación</mat-label>
+        <input matInput type="number" formControlName="monto" class="example-right-align" placeholder="0">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+
+
+    </div>
+
+
+
+
+  </form>
+
+
+
+
+</section>
+
+<section class="botones">
+
+<div class="paypal" #paypal>
+</div>
+
+
+  <button mat-raised-button
+          color="primary"
+          (click)="send()"
+          [disabled]="isDisabled">Donar</button>
+</section>
+
+</div>
+
+<app-footer></app-footer>

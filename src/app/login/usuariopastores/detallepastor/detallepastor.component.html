@@ -1,0 +1,141 @@
+<div class="animate__animated animate__fadeIn">
+
+<h3 class="titulo titulograde"> DETALLE DE PASTOR </h3>
+
+
+<div class="container elevacion" id="content" #content>
+
+  <div class="fila">
+    <label id="example-radio-group-label">Nombre:</label>
+    <span>{{ pastor.name }} </span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Categoria:</label>
+    <span>{{ pastor.category }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Area:</label>
+    <span>{{ pastor.area }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left" *ngIf="pastor.category != 'Distrital'">Año de ordenación:</label>
+    <label id="example-radio-group-label" class="left" *ngIf="pastor.category == 'Distrital'">Año de 1ra licencia recibida:</label>
+
+    <span>{{ pastor.year }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Membresia</label>
+    <span>{{ pastor.membresia }}</span>
+  </div>
+
+  <div class="fila">
+    <label id="example-radio-group-label" class="left">Lugar de ministerio</label>
+    <span>{{ pastor.lugardeministerio }}</span>
+  </div>
+
+  <div class="fila" *ngIf="pastor.category == 'Presbitero'">
+    <label class="label"> Grado académico </label>
+  </div>
+  <div class="lista_titulos" *ngIf="pastor.category == 'Presbitero'">
+    <mat-checkbox *ngFor="let titulo of listaTitulos" [checked]="titulo.valor" disabled="true" >{{titulo.nombre}}</mat-checkbox>
+  </div>
+
+
+  <div class="fila">
+    <label class="label">Imagen pastor :</label>
+
+    <ng-container *ngIf="imagen == undefined">
+      <mat-spinner></mat-spinner>
+    </ng-container>
+    <ng-container *ngIf="imagen">
+    <img class="imagen" [src]="'http://localhost:3000/'+ imagen.imagePath" alt="">
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="hasMaterias && pastor.category == 'Distrital' && !seeRecord">
+    <button class="boton" mat-raised-button color="primary" (click)="seeRecord = !seeRecord" >ver record </button>
+  </ng-container>
+
+  <ng-container *ngIf="hasMaterias && seeRecord">
+    <app-record [idPas]="pastor.id"></app-record>
+  </ng-container>
+
+  <ng-container *ngIf="!hasMaterias && pastor.category == 'Distrital'">
+      <!-- <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+              [routerLink]="['/login/usuariopastores/aditarrecord', {id:pastor.id, tip:'crear'}]">
+        Añadir record
+        <mat-icon >
+          more_horiz
+          </mat-icon>
+      </button> -->
+      <button class="boton" mat-raised-button color="primary" [routerLink]="['/login/usuariopastores/aditarrecord', {id:pastor.id, tip:'crear'}]">Añadir record </button>
+  </ng-container>
+
+
+
+  <div class="botones">
+
+    <ng-container *ngIf="hasMaterias && pastor.category == 'Distrital' && seeRecord">
+      <button class="boton" mat-raised-button color="info" (click)="generaPDF()"> generar boleta </button>
+    </ng-container>
+
+
+    <button mat-raised-button color="warn" (click)="alertaEliminar()">Eliminar</button>
+
+    <button mat-raised-button color="primary" [routerLink]="['/login/usuariopastores/editarpastor', pastor.id]">Editar</button>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- //  -->
+<div style="display: none" >
+
+
+<div id="content1" #content1 >
+
+  <h3 class="titulo titulograde"> BOLETA DE PASTOR </h3>
+  <div >
+
+    <div class="detallepas">
+      <div class="fila">
+        <label id="example-radio-group-label">Nombre:</label>
+        <span>{{ pastor.name }} </span>
+      </div>
+
+      <div class="fila">
+        <label id="example-radio-group-label" class="left">Categoria:</label>
+        <span>{{ pastor.category }}</span>
+      </div>
+
+      <div class="fila">
+        <label id="example-radio-group-label" class="left">Area:</label>
+        <span>{{ pastor.area }}</span>
+      </div>
+
+      <div class="fila">
+        <label id="example-radio-group-label" class="left">Año de ordenación:</label>
+        <span>{{ pastor.year }}</span>
+      </div>
+    </div>
+
+    <ng-container *ngIf="hasMaterias && seeRecord">
+      <app-record id="content2" #content2 [idPas]="pastor.id"></app-record>
+    </ng-container>
+
+  </div>
+
+  </div>
+</div>

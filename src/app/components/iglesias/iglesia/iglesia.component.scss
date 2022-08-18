@@ -1,0 +1,284 @@
+@use '@angular/material' as mat;
+
+
+
+// .contenedor{
+//   padding: 60px 0 0 0;
+//   width: 90%;
+//   max-width: 1000px;
+//   margin: auto;
+//   overflow: hidden;
+// }
+
+// .titulo{
+//   color: #642a73;
+//   font-size: 30px;
+//   text-align: center;
+// }
+
+
+// .header{
+//   width: 100%;
+//   height: 300px;
+//   background-image: url("/assets//imagenes/joven.jpg");
+//   background-size: cover;
+//   background-attachment: fixed;
+//   position: relative;
+// }
+
+// .wave{
+//   position: absolute;
+//   // bottom: 10px;
+//   top: 50em;
+//   width: 100%;
+// }
+
+// .card{
+//   width: 700px;
+//   height: 100%;
+//   border-radius: 0 0 40px 40px;
+//   background-color: #ffffff;
+//   z-index: 10;
+//   top: 0;
+//   right: 1em;
+//   position: absolute;
+// }
+
+
+// .nombre{
+//   font-size: 80px;
+//   padding: 1.5em 0 0 1.5em;
+//   color: rgb(255, 255, 255);
+// }
+
+// .zona{
+//   padding: 0 0 0 8em;
+//   color: hsla(0, 0%, 0%, 0.582);
+//   font-weight: 800;
+// }
+
+
+// .imagen1{
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   object-position: center center;
+//   position: absolute;
+//   border-radius: 0 0 40px 40px;
+
+// }
+
+// .imagen2{
+//   width: 150px;
+//   height: 150px;
+//   object-fit: cover;
+//   object-position: center center;
+//   border-radius: 50%;
+//   border: 8px solid rgb(255, 255, 255);
+//   position: absolute;
+//   z-index: 20;
+//   right: 2em;
+//   bottom: -80px;
+// }
+
+
+// .texto{
+//   // position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   padding: 0 0 0 5em;
+// }
+
+
+// .subtitulo{
+//   // position: absolute;
+//   // bottom: 30%;
+//   // z-index: 40;
+//   // padding: 0 0 5em 2em;
+//   font-weight: 900;
+//   font-size: 18px;
+//   opacity: 0.7;
+//   padding: 1em 0 .2em 0;
+// }
+
+
+
+
+// .bloque{
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   height: auto;
+//   padding: 3em 3em;
+//   background-color: #ffffff;
+
+//   section{
+//     // border: 2px solid gray;
+//     .horario{
+//       margin-left: 4em;
+//     }
+//   }
+// }
+
+
+
+
+// .derecha{
+//   display: flex;
+//   flex-direction: row-reverse;
+// }
+
+
+// .boton{
+//   width: 30%;
+//   border-radius: 20px;
+//   border: 2px solid green;
+//   margin: 2em 2em;
+//   padding: .5em 2em;
+//   text-align: center;
+
+
+// }
+
+// .elevacion {
+//   @include mat.elevation-transition();
+//   @include mat.elevation(2);
+
+//   &:active {
+//     @include mat.elevation(4);
+//   }
+// }
+
+
+
+
+.imgpas{
+  /* border-radius: 50%; */
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  object-position: center center;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 0 10px;
+  position: relative;
+  bottom: 0.5em;
+  right: 0.5em;
+  transition: .8s ease-in-out;
+
+
+}
+
+.imgpas:hover{
+    transform: perspective(500px) scaleZ(1.5) translateZ(10px);
+
+}
+
+
+.imagen{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.carta{
+  // background-image: url('/assets/bgs/biblia.jpg');
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+
+  width: 100%;
+  height: auto;
+  // // background-image: url("/assets//imagenes/joven.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: -10;
+  transition: .4s ease-in-out;
+
+}
+
+.carta::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.3);
+  z-index: -9;
+  border-radius: 0 0 10px 10px;
+  transition: .7s ease-in-out;
+
+}
+
+.titulo{
+  text-align: center;
+  color: #f4f4f8;
+  /* padding: 10% 10%; */
+  margin: 10px 0px;
+}
+
+.titulo_central{
+ font-size: 30px;
+ font-weight: 700;
+ transition: .5s ease-in-out;
+
+ /* background-color: rgba(0, 159, 183, 0.6); */
+}
+
+.descrip{
+  text-align: center;
+  color: #f4f4f8;
+  margin: 20px 0px;
+  /* background-color: rgb(0, 159, 183); */
+}
+
+
+.botones{
+  padding: 1em;
+  display: flex;
+  background-color: rgb(254, 215, 102);
+  justify-content: space-around;
+  border-radius: 0 0 10px 10px;
+  clear: both;
+  transition: .4s ease-in-out;
+
+}
+
+.cursores{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+
+}
+
+.talla{
+  text-align: center;
+  color: #49494b;
+  transition: .7s ease-in-out;
+
+}
+
+.botones:hover{
+  cursor: pointer;
+  // transform: scale3d(1.01, 1.01, 1.01);
+  border-radius: 10px;
+  transform: perspective(500px) scaleZ(1.5) translateZ(-20px);
+  background-color: rgba(254, 216, 102, 0.781);
+
+
+  .talla{
+    // color: white;
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+}
+
+
+
+.carta:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  .titulo_central{
+    font-size: 35px;
+    font-weight: 800;
+  }
+}
+
+

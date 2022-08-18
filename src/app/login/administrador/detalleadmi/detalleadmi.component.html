@@ -1,0 +1,68 @@
+
+
+<div class="animate__animated animate__fadeInLeft">
+  <h3 class="titulo titulograde"> DETALLE DE ADMINISTRADOR </h3>
+
+<div class="container elevacion">
+
+  <!-- <h5 class="subtitulo"> TIPO DE ADMINISTRADOR</h5>
+  <mat-divider class="divider"></mat-divider> -->
+
+
+  <div class="fila">
+    <h5 class="data">ADMINISTRADOR DE {{ usuario.type }} </h5>
+    <label class="label">Tipo</label>
+  </div>
+
+  <!-- <h5 class="titulo subtitulo">DATOS PERSONALES </h5>
+    <mat-divider class="divider"></mat-divider> -->
+
+  <div class="fila">
+    <h5 class="data">{{ usuario.name }} {{ usuario.lastname }} </h5>
+    <label class="label">Nombre</label>
+  </div>
+
+  <div class="bloque">
+    <ng-container *ngIf="usuario.ministerio != ' '">
+      <div class="fila">
+        <h5 class="data">{{ usuario.ministerio }}  </h5>
+        <label class="label">Ministerio al que pertenece</label>
+      </div>
+    </ng-container>
+
+    <div class="fila">
+      <h5 class="data">{{ usuario.cargo }}  </h5>
+      <label class="label">Cargo</label>
+    </div>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ usuario.miembroen }}  </h5>
+    <label class="label">Miembro en la Iglesia</label>
+  </div>
+
+
+  <!-- <h5 class="titulo subtitulo"> DATOS DE AUTENTICACIÓN </h5>
+  <mat-divider class="divider"></mat-divider> -->
+
+  <div class="bloque">
+    <div class="fila">
+      <h5 class="data">{{ usuario.username }}  </h5>
+      <label class="label">Username</label>
+    </div>
+
+    <div class="fila">
+      <h5 class="data">{{ usuario.password }}  </h5>
+      <label class="label">Password</label>
+    </div>
+  </div>
+
+
+  <div class="botones">
+    <button mat-raised-button color="warn" (click)="alertaEliminar()">Eliminar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/login/administrador/editaradmin', usuario.id]">Editar</button>
+  </div>
+
+</div>
+
+</div>
