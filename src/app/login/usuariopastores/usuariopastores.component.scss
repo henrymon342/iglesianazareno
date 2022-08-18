@@ -1,0 +1,28 @@
+@use '@angular/material' as mat;
+
+.titulo{
+  padding: 2em;
+  font-weight: bold;
+  text-align: left;
+  font-size: x-large;
+
+  background-color: #003049;
+  color: white;
+}
+
+.container{
+  // margin: 2em 5em;
+  // margin: 1em 5em 2em 5em;
+  background-color: #F9F9F9;
+  padding: 1em 2em;
+  height: auto;
+}
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}

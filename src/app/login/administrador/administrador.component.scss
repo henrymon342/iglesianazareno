@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+
+.titulo{
+  height: 15vh;
+  padding: 2em;
+  font-weight: bold;
+  text-align: left;
+  font-size: x-large;
+
+  background-color: #003049;
+  color: white;
+
+}
+
+
+.container{
+  height: 80VH;
+  width: 100vw;
+  background-color: rgb(235, 235, 235);
+
+  display: grid;
+  place-content: center;
+  // grid-template-columns: 1fr 1fr
+
+  .center{
+    width: 60em;
+    height: 10em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4em;
+    .card{
+      border-radius: 10px;
+      background: #0077b6;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+
+      span{
+        font-size: 5em;
+      }
+
+      h4{
+        font-size: 2em;
+      }
+
+    &:hover{
+      background: #caf0f8;
+      color: #023e8a;
+      cursor: pointer;
+    }
+
+    }
+  }
+
+}
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}

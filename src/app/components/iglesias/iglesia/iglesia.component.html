@@ -1,0 +1,87 @@
+<!-- <header class="header">
+  <section class="textos_header">
+    <div>
+      <h2 class="nombre">VIACHA</h2>
+      <span class="zona">ZONA NORTE</span>
+    </div>
+  </section>
+  <div class="card elevacion">
+      <img class="imagen2" src="/assets/bgs/biblia.jpg" alt="">
+      <img class="imagen1" src="/assets/bgs/biblia.jpg" alt="">
+
+  </div>
+</header>
+<div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C194.98,195.89 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+
+<main class="bloque">
+  <section >
+      <h2 class="titulo">SERVICIOS</h2>
+        <h2 class="subtitulo">CULTO GENERAL</h2>
+        <span class="horario">DOMINGO 10:00 am - 13:00 pm</span>
+
+      <h2 class="subtitulo">CULTO DE JNI</h2>
+        <span class="horario">SABADO 16:00 am - 19:00 pm</span>
+
+  </section>
+  <section>
+      <h2 class="subtitulo">PASTOR</h2>
+        <span class="horario">Isai Murga</span>
+
+
+        <div class="derecha">
+          <div class="boton">ver más</div>
+        </div>
+  </section>
+</main> -->
+<div class="animate__animated animate__backInDown delay_6">
+  <!-- <img src="http://localhost:3000/{{imageIglesia.imagePath}}"> -->
+  <!-- "url(http://localhost:3000/{{imageIglesia.imagePath}})" -->
+  <div class="carta" [ngStyle]="{'background-image': getUrl()}">
+    <div class="imagen">
+        <!-- <div class="titulo titulo_central">
+            <h2>LA PORTADA</h2>
+        </div> -->
+
+        <!-- <ng-container *ngIf="image == undefined">
+          <mat-spinner></mat-spinner>
+          <img class="imgpas" src="/assets/imagenes/joven.jpg" alt="nike">
+        </ng-container>
+        <ng-container *ngIf="image">
+        <img class="imgpas" [src]="'http://localhost:3000/'+ image.imagePath" alt="">
+        </ng-container> -->
+        <img class="imgpas" [src]="'http://localhost:3000/'+ imagePastor.imagePath" alt="" *ngIf="imagePastor">
+        <img class="imgpas" src="/assets/imagenes/joven.jpg" alt="" *ngIf="!imagePastor">
+
+        <!-- <img class="imgpas" src="/assets/imagenes/joven.jpg" alt="nike"> -->
+
+    </div>
+    <div class="titulo ">
+        <h2 class="titulo_central ">{{iglesia.nombre}}</h2>
+    </div>
+    <div class="descrip">
+        <span>HORARIO DE SERVICIOS</span>
+
+        <p>CULTO CENTRAL</p>
+        <p>
+            {{iglesia.diacentral}}
+            {{iglesia.horacentralini | date: 'h:mm a' | uppercase }} - {{iglesia.horacentralfin | date: 'h:mm a' | uppercase }}
+        </p>
+        <br>
+        <p>REUNIONES DE JÓVENES</p>
+        <p>
+          {{iglesia.diajni}}
+          {{iglesia.horajniini | date: 'h:mm a' | uppercase }} - {{iglesia.horajnifin | date: 'h:mm a' | uppercase }}
+
+        </p>
+    </div>
+    <div class="botones">
+        <div class="talla" [routerLink]="['/detalle/', iglesia.id]">
+            ver más
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+

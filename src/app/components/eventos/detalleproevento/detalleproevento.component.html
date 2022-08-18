@@ -1,0 +1,114 @@
+
+<div class="container">
+  <span class="ministerio">
+    {{ evento.ministerio }}
+  </span>
+  <section class="bg_titulo">
+    <div class="borde">
+      <h3 class="titulo"> {{ evento.titulo | uppercase }}</h3>
+    </div>
+  </section>
+
+  <div class="realizado" *ngIf="hasFinished">
+    <h4 class="realizado_texto"> REALIZADO</h4>
+  </div>
+
+  <div class="contador" *ngIf="!hasFinished">
+    <div class="dias">
+      <div class="numero" >
+
+        {{day}}
+      </div>
+      <div class="texto">
+        Días
+      </div>
+    </div>
+    <div class="horas">
+      <div class="numero">
+
+        {{hours}}
+      </div>
+      <div class="texto">
+        Horas
+      </div>
+    </div>
+
+    <div class="minutos">
+      <div class="numero">
+
+        {{minutes}}
+      </div>
+      <div class="texto">
+        Minutos
+      </div>
+    </div>
+
+    <div class="segundos">
+      <div class="numero">
+
+        {{seconds}}
+      </div>
+      <div class="texto">
+        Segundos
+      </div>
+    </div>
+  </div>
+
+  <section class="info">
+    <div class="info_mod">
+      <h3 class="modalidad"> {{ evento.modalidad }} </h3>
+    </div>
+
+    <div class="fecha_hora">
+      <div >
+        <mat-icon class="icon_date">event</mat-icon>
+      </div>
+      <div class="bloque">
+        <div class="fecha">
+          <span *ngIf="evento.tipofecha == 'Solo un día'">{{ evento.fecha | date: 'EEEE, MMMM d, y' }}</span>
+          <span *ngIf="evento.tipofecha == 'Varios días'">{{ evento.fechaini | date: 'EEEE, MMMM d, y' }} - {{ evento.fechafin | date: 'EEEE, MMMM d, y' }}</span>
+          <!-- Agosto 5, 2022 -->
+        </div>
+        <div class="hora">
+          {{ evento.horaini | date: 'h:mm a' }}
+          <!-- 1:00 pm -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="lugar">
+      <h3 class="lugar_label"> Lugar</h3>
+
+      <h3 class="lugar_texto" *ngIf="evento.presencial != 'Otro lugar'"> IGLESIA DEL NAZARENO {{ evento.lugar }} </h3>
+      <h3 class="lugar_texto" *ngIf="evento.presencial == 'Otro lugar'"> {{ evento.lugar }} </h3>
+
+      <h3 class="lugar_texto" *ngIf="evento.virtual != '' && evento.presencial != 'Otro lugar'"> {{ evento.lugar }} </h3>
+  </section>
+
+  <section class="descripcion">
+    <h3 class="descripcion_label"> Descripción</h3>
+
+    <div class="descripcion_texto">
+      {{ evento.descripcion }}
+
+      <!-- este es una descripcion de ejemplo para que podamos hacer pruebas en esta seccion
+      asdasdasd asdfasd asdf asd fasd asd fasdfasdfasd asdfasdf asdf asdfasd
+      asdfasdfads asdfasd dfsdfgh sdftyert dxfg aw asertc -->
+    </div>
+  </section>
+
+  <h3 class="encargados_label"> Encargados</h3>
+  <section class="encargados">
+
+
+    <div class="card_encar"  *ngFor="let persona of ENCARGADOS">
+      <h4> {{ persona }} </h4>
+    </div>
+  </section>
+
+</div>
+
+
+

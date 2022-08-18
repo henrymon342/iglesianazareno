@@ -1,0 +1,119 @@
+
+
+<div class="animate__animated animate__fadeInLeft">
+  <h3 class="titulo titulograde"> DETALLE DE IGLESIA </h3>
+
+<div class="container elevacion">
+
+  <h5 class="subtitulo">INFORMACIÓN BÁSICA </h5>
+  <mat-divider class="divider"></mat-divider>
+
+
+  <div class="fila">
+    <h5 class="data"> IGLESIA DEL NAZARENO {{ iglesia.nombre }}  </h5>
+    <label class="label">Nombre</label>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ iglesia.zona }} </h5>
+    <label class="label">Zona</label>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ nombrePastor}} </h5>
+    <label class="label">Pastor</label>
+  </div>
+
+  <div class="fundacion">
+    <div class="col">
+      <h5 class="data">{{ iglesia.fundacion }} </h5>
+      <label class="label">Fundación</label>
+    </div>
+    <div class="col">
+      <h5 class="data">{{ iglesia.fundacion }} </h5>
+      <label class="label">Años</label>
+    </div>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ iglesia.ubicacion }} </h5>
+    <a mat-raised-button color="primary" href={{iglesia.ubicacion}} target="_blank">ver mapa</a>
+    <!-- <button mat-raised-button color="primary" href=iglesia.ubicacion >Eliminar</button> -->
+    <label class="label">Enlace de ubicación a google maps</label>
+  </div>
+
+
+  <h5 class="titulo subtitulo espacioArri">DIRECTIVA </h5>
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="fila">
+    <h5 class="data">{{ iglesia.superdni }} </h5>
+    <label class="label">Superintendente DNI</label>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ iglesia.presimni }} </h5>
+    <label class="label">Presidente de MNI</label>
+  </div>
+
+  <div class="fila">
+    <h5 class="data">{{ iglesia.presijni }} </h5>
+    <label class="label">Presidente de JNI</label>
+  </div>
+
+  <h5 class="titulo subtitulo espacioArri">HORARIO DE SERVICIOS </h5>
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="fundacion">
+    <div class="col">
+      <h5 class="data">{{ iglesia.diacentral }} </h5>
+      <label class="label">Culto central</label>
+    </div>
+
+    <div class="col">
+      <div class="data">
+        <span>{{ iglesia.horacentralini | date :'shortTime' }}  </span>
+        -
+        <span>{{ iglesia.horacentralfin | date :'shortTime' }} </span>
+      </div>
+      <label class="label">Horario</label>
+    </div>
+  </div>
+
+
+  <div class="fundacion">
+    <div class="col">
+      <h5 class="data">{{ iglesia.diajni }} </h5>
+      <label class="label">Culto de JNI</label>
+    </div>
+
+    <div class="col">
+      <div class="data">
+        <span>{{ iglesia.horajniini | date :'shortTime' }} </span>
+        -
+        <span>{{ iglesia.horajnifin | date :'shortTime' }} </span>
+      </div>
+      <label class="label">Horario</label>
+    </div>
+  </div>
+
+  <h5 class="titulo subtitulo espacioArri">IMAGEN DE IGLESIA </h5>
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="fila animate__animated animate__fadeInUp">
+    <img class="imagen" [src]="'http://localhost:3000/'+ image.imagePath" alt="" >
+    <!-- <img class="imagen" src="/assets/imagenes/joven.jpg" alt="" *ngIf="ruta_imagen"> -->
+
+    <!-- <img class="imagen" [src]="ruta_imagen" alt=""> -->
+    <label class="label">Imagen de la iglesia</label>
+  </div>
+
+
+  <div class="botones">
+    <button mat-raised-button color="warn" (click)="alertaEliminar()">Eliminar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/login/administrador/editariglesia', iglesia.id]">Editar</button>
+  </div>
+
+</div>
+
+</div>

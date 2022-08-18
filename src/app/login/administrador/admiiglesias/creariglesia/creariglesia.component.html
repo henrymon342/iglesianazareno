@@ -1,0 +1,255 @@
+
+<div class="container">
+
+  <form class="form elevacion" [formGroup]="form"  (change)="isGood()">
+
+    <h3 class="titulo"> CREAR IGLESIA </h3>
+
+      <h5 class="subtitulo">INFORMACIÓN BÁSICA </h5>
+
+      <div class="field">
+        <label class="label">Nombre de la Iglesia</label>
+        <mat-form-field class="box_input" appearance="outline">
+          <input formControlName="nombre"
+                type="text"
+                matInput
+                placeholder="nombre"
+                class="input"
+                >
+        </mat-form-field>
+      </div>
+
+
+    <div class="field">
+      <label class="label">Zona </label>
+        <mat-form-field appearance="outline" class="box_select">
+          <mat-select placeholder="zona" class="select" formControlName="zona" (selectionChange)='isGood()'>
+            <mat-option *ngFor="let zone of ZONAS" [value]=zone>
+              {{ zone }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <!-- <label>Con Vínculo </label>
+    <a href="https://goo.gl/maps/fM81fb3X7mP6dewg8" target="_blank">Vínculo</a> -->
+
+    <div class="field">
+      <label class="label">Nombre del Pastor </label>
+        <mat-form-field appearance="outline" class="box_select">
+          <mat-select placeholder="nombre" class="select" formControlName="idPastor" (selectionChange)='isGood()'>
+            <mat-option *ngFor="let pas of pastores" [value]=pas.id>
+              {{ pas.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <h5 class="subtitulo">DIRECTIVA </h5>
+
+    <div class="field">
+      <label class="label">Superintendente de DNI</label>
+      <mat-form-field class="box_input" appearance="outline">
+        <mat-label>nombre</mat-label>
+        <input formControlName="superdni"
+              type="text"
+              matInput
+              placeholder="superintendente"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+    <div class="field">
+      <label class="label">Presidente de MNI</label>
+      <mat-form-field class="box_input" appearance="outline">
+        <mat-label>nombre</mat-label>
+        <input formControlName="presimni"
+              type="text"
+              matInput
+              placeholder="presidente"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Presidente de JNI</label>
+      <mat-form-field class="box_input" appearance="outline">
+        <mat-label>nombre</mat-label>
+        <input formControlName="presijni"
+              type="text"
+              matInput
+              placeholder="presidente"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+    <h5 class="subtitulo">HORARIO DE SERVICIOS </h5>
+
+    <div class="field">
+    <h5 class="subtitulo">Culto central </h5>
+      <label class="label"> Día </label>
+        <mat-form-field class="dia" appearance="outline" >
+          <mat-select placeholder="día" formControlName="diacentral" (selectionChange)='isGood()'>
+            <mat-option *ngFor="let day of DAYS" [value]='day'>
+              {{ day }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <div class="horario">
+
+      <div class="hora">
+      <label class="label">Hora inicio </label>
+        <mat-form-field class="marca" appearance="outline">
+          <input formControlName="horacentralini"
+                 type="text"
+                 matInput
+                 placeholder="10:00"
+                 matTimepicker
+                 (timeChange)="isGood()"
+                 >
+        </mat-form-field>
+      </div>
+
+      <div class="hora">
+      <label class="label">Hora fin </label>
+
+        <mat-form-field class="marca" appearance="outline">
+          <input formControlName="horacentralfin"
+                 type="text"
+                 matInput
+                 placeholder="13:00"
+                 matTimepicker
+                 (timeChange)="isGood()"
+                 >
+        </mat-form-field>
+      </div>
+
+      <div class="text_time">
+        <h3 class="time"> {{form.value.horacentralini| date:'h:mm a'}} - {{form.value.horacentralfin| date:'h:mm a'}}</h3>
+      </div>
+
+    </div>
+
+
+    <div class="field">
+    <h5 class="subtitulo">Culto de Jóvenes </h5>
+      <label class="label">Día </label>
+        <mat-form-field class="dia" appearance="outline" >
+          <mat-select placeholder="día" formControlName="diajni" (selectionChange)='isGood()' >
+            <mat-option *ngFor="let day of DAYS" [value]='day'>
+              {{ day }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="horario">
+
+      <div class="hora">
+      <label class="label">Hora inicio </label>
+        <mat-form-field class="marca" appearance="outline">
+          <input formControlName="horajniini"
+                 type="text"
+                 matInput
+                 placeholder="10:00"
+                 matTimepicker
+                 (timeChange)="isGood()"
+                 >
+        </mat-form-field>
+      </div>
+
+      <div class="hora">
+      <label class="label">Hora fin </label>
+        <mat-form-field class="marca" appearance="outline">
+          <input formControlName="horajnifin"
+                 type="text"
+                 matInput
+                 placeholder="13:00"
+                 matTimepicker
+                 (timeChange)="isGood()"
+                 >
+        </mat-form-field>
+      </div>
+
+      <div class="text_time">
+        <h3 class="time"> {{form.value.horajniini| date:'h:mm a'}} - {{form.value.horajnifin| date:'h:mm a'}}</h3>
+      </div>
+
+    </div>
+
+
+    <h5 class="subtitulo">DATOS ESPECÍFICOS</h5>
+
+
+    <div class="field">
+      <label class="label"> Fundación </label>
+      <mat-form-field class="fundacion" appearance="outline" >
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker"
+                        formControlName="fundacion"
+                        (dateChange)="isGood()" >
+        <!-- <mat-hint>YYYY/MM/DD</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+        <mat-datepicker #picker
+                        startView="multi-year"
+                        [startAt]="startDate"
+                        ></mat-datepicker>
+      </mat-form-field>
+
+      <div class="text_fundation">
+        <h3 class="fundation"> {{ tiempoFun(tiempoIglesia) }}</h3>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label"> Ubicación </label>
+      <label class="label"><i> Desde google maps copie el ("vínculo para compartir") aquí</i> </label>
+      <mat-form-field class="box_input" appearance="outline">
+        <mat-label>ubicación</mat-label>
+        <input formControlName="ubicacion"
+              type="text"
+              matInput
+              placeholder="ubicación"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <h5 class="subtitulo">CARGAR IMAGEN DE IGLESIA</h5>
+
+
+    <div class="field imagen">
+      <label class="label">Iglesia </label>
+      <ngx-dropzone (change)="iglesiaImageSelected($event)">
+        <ngx-dropzone-label>Seleccionar aquí!</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of filesIglesias" multiple="false" [file]="f">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+
+
+    <div class="field">
+      <button mat-raised-button color="primary"
+              (click)="alertaIglesia()"
+              class="boton"
+              [disabled]="isDisabled">
+              CREAR</button>
+    </div>
+
+  </form>
+
+  <div class="bg"></div>
+
+</div>
+

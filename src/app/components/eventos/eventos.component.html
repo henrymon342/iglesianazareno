@@ -1,0 +1,209 @@
+<div class="bg_blanco animate__animated animate__fadeIn">
+  <section class="bg_titulo">
+    <h3 class="titulo"> EVENTOS</h3>
+    <h6 class="bloque_sub">
+      <p class="sub_titulo">
+        Todo lo que hagan, háganlo de buena gana, como si estuvieran sirviendo al Señor
+        y no a los hombres.
+      </p>
+      <p class="sub_titulo">
+        COLOSENSES 3:23
+      </p>
+    </h6>
+  </section>
+
+
+  <div class="deslizador">
+    <div class="izquierda">
+      <button   mat-button
+                mwlCalendarPreviousView
+                [view]="view1"
+                [(viewDate)]="viewDate1"
+                (viewDateChange)="mesInteractivo(viewDate1)">
+        <mat-icon >keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+    <div class="mes ">
+      <h3 class="tamaño18">
+        <!-- <button mat-button color="primary"
+                mwlCalendarPreviousView
+                [view]="view1"
+                [(viewDate)]="viewDate1"
+                (viewDateChange)="mesInteractivo(viewDate1)">
+          ANTERIOR
+        </button> -->
+
+        <button mat-button color="primary"
+                mwlCalendarToday
+                [(viewDate)]="viewDate1"
+                (viewDateChange)="mesInteractivo(viewDate1)"
+                class="centrado">
+              <!-- HOY -->
+              <!-- <h3 class="tamaño18">{{ viewDate1 | calendarDate:(view + 'ViewTitle'):'en' }}</h3> -->
+              <h3 >{{ viewDate1 | date:'MMMM': 'en' | uppercase }}</h3>
+        </button>
+
+        <!-- <button mat-button color="primary"
+                mwlCalendarNextView
+                [view]="view1"
+                [(viewDate)]="viewDate1"
+                (viewDateChange)="mesInteractivo(viewDate1)">
+              SIGUIENTE
+        </button> -->
+        <!-- Marzo -->
+      </h3>
+    </div>
+    <div class="derecha">
+      <button   mat-button
+                mwlCalendarNextView
+                [view]="view1"
+                [(viewDate)]="viewDate1"
+                (viewDateChange)="mesInteractivo(viewDate1)">
+        <mat-icon >keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="botones">
+    <button mat-button color="primary"
+            (click)="cambioMinisterio('JNI')">
+            <span>
+              JNI
+            </span>
+    </button>
+    <button mat-button color="primary"
+            (click)="cambioMinisterio('MNI')">
+            <span>
+              MNI
+            </span>
+    </button>
+    <button mat-button color="primary"
+            (click)="cambioMinisterio('DNI')">
+            <span>
+              DNI
+            </span>
+    </button>
+  </div>
+
+  <div class="sin_eventos" *ngIf="monthEvents.length == 0">
+    <img class="image_sin_eventos animate__animated animate__fadeIn" src="/assets/bgs/no_events3.jpg" alt="">
+  </div>
+
+  <div class="cont_events">
+    <app-evento [evento]="item" *ngFor="let item of monthEvents"></app-evento>
+  </div>
+
+  <!-- <app-evento></app-evento>
+  <app-evento></app-evento>
+  <app-evento></app-evento>
+   -->
+
+
+
+
+   <h3 class="titulo_calendar">CALENDARIO DE ACTIVIDADES</h3>
+
+   <div class="mitad"><hr></div>
+
+
+  <div class="botones2">
+    <div class="bloque_botones">
+      <button mat-button color="primary"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            <span> ATRÁS </span>
+
+      </button>
+
+      <button mat-button color="primary"
+              mwlCalendarToday
+              [(viewDate)]="viewDate">
+              <span>HOY</span>
+      </button>
+
+      <button mat-button color="primary"
+              mwlCalendarNextView
+              [view]="view"
+              [(viewDate)]="viewDate"
+              (viewDateChange)="closeOpenMonthViewDay()">
+              <span>SIGUIENTE</span>
+      </button>
+    </div>
+
+    <div class="bloque_botones">
+      <h3 class="mes_ref">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    </div>
+
+    <!-- <button mat-button color="primary"
+            (click)="setView(CalendarView.Month)"
+            [class.active]="view === CalendarView.Month">
+    Mes
+    </button>
+
+  <button mat-button color="primary"
+          (click)="setView(CalendarView.Week)"
+          [class.active]="view === CalendarView.Week">
+    Semana
+  </button> -->
+
+  <div class="bloque_botones">
+    <button mat-button color="primary"
+            (click)="setView(CalendarView.Month)"
+            [class.active]="view === CalendarView.Month">
+   <span> MES </span>
+    </button>
+    <button mat-button color="primary"
+          (click)="setView(CalendarView.Week)"
+          [class.active]="view === CalendarView.Week">
+  <span> SEMANA </span>
+  </button>
+  </div>
+
+  <!-- <button mat-button color="primary"
+    (click)="setView(CalendarView.Day)"
+    [class.active]="view === CalendarView.Day">
+    Day
+  </button> -->
+  </div>
+
+
+
+
+
+
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-day-view>
+  </div>
+
+</div>

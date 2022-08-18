@@ -1,0 +1,523 @@
+
+// *{
+//   line-height : 25px;
+// }
+
+.container{
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: auto;
+
+}
+
+.centrado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.textoblanco{
+  color: white;
+}
+
+
+.bgtitulo{
+  width: 100%;
+  height: 300px;
+  // background-color: #686868;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+  display: grid;
+  grid-template-rows: auto auto;
+  text-align: center;
+  align-items: center;
+  color: white;
+
+  .titulo{
+    font-family: 'Lalezar', cursive;
+    font-size: 120px;
+    display: inline-block; /*Creamos un pseudo-elemento :before de tipo inline-block*/
+    height: 100%; /*Hacemos que mida el 100% de la altura del contenedor*/
+    vertical-align: bottom;
+  }
+
+  .subtitulo{
+
+  }
+}
+
+
+
+
+
+.presentacionjni{
+  padding: 100px 20%;
+  text-align: center;
+  height: 80vh;
+
+  p{
+    word-spacing: 12px;
+    line-height : 50px;
+    font-family: 'Lalezar', cursive;
+    font-size: 24px;
+    font-weight: 500;
+
+    b{
+      font-family: 'Lalezar', cursive;
+      font-size: 32px;
+      font-weight: 500;
+      color: #0093E9;
+    }
+  }
+
+}
+
+
+.versiculo{
+  // background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+  background-color: #448FFF;
+  padding: 100px 20%;
+  text-align: center;
+  height: 60vh;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  p{
+    word-spacing: 8px;
+    line-height : 50px;
+    font-family: 'Lalezar', cursive;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .cita{
+    background-color: #ffffff;
+    padding: 1em 2em;
+    color: #0093E9;
+  }
+}
+
+.cita{
+  position: absolute;
+  right: 10%;
+}
+
+.bloque{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  // justify-content: center;
+  align-items: center;
+  // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  // border: 2px solid red;
+  // border-radius: 10px;
+  margin: 1em 4em;
+  height: 600px;
+
+  span{
+    font-size: 120px;
+    color: #ff9914;
+  }
+}
+
+.contiene{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+
+.titulograde{
+  padding: 10% 10%;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.texto{
+  width: 100%;
+  padding: 0 1em;
+  word-spacing: 8px;
+  line-height : 40px;
+  font-size: 24px;
+  font-weight: 500;
+
+
+}
+
+.imagen{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center center;
+  // height: auto;
+  // background-size: cover;
+}
+
+.caja1{
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+.titulo2{
+  text-align: center;
+  padding: 10px 5;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.mitad{
+  align-items: center;
+  width: 70%;
+  padding: 50px 10%;
+}
+
+.lista{
+  padding: 10px 10%;
+
+  word-spacing: 8px;
+  line-height : 40px;
+  font-family: 'Lalezar', cursive;
+  font-size: 24px;
+  font-weight: 500;
+
+  .itemlist{
+    b{
+      font-weight: 600;
+      color: #0093E9;
+    }
+  }
+}
+
+.itemlist{
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.valores{
+  padding: 5% 10%;
+}
+
+
+.justificado{
+  text-align: justify;
+}
+
+
+.bloque1{
+  color: #ffffff;
+  background-color: #16d485;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 60vh;
+  padding: 1em;
+}
+
+.imgjoven{
+  position: relative;
+  bottom: 15em;
+}
+
+.imgjoven2{
+  position: relative;
+  bottom: 5em;
+}
+
+.bg_titulo{
+  background-image: url('/assets/bgs/bg_jni5.jpg');
+
+  width: 100%;
+  height: 400px;
+  background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+  background-attachment: fixed;
+  padding: 6em;
+  text-align: center;
+  color: white;
+
+  &:before {
+    content:'';
+    position: absolute;
+          top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+
+  .titulo{
+    font-size: 120px;
+    font-weight: 900;
+    position: relative;
+    font-family: 'Lalezar', cursive;
+  }
+
+  .bloque_sub{
+    position: relative;
+
+    .sub_titulo{
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .verso{
+      padding-top: .5em;
+      font-weight: 500;
+    }
+  }
+}
+
+
+.textoactividades{
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height : 40px;
+  }
+}
+
+
+
+.custom-shape-divider-top-1657077479 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1657077479 svg {
+  position: relative;
+  display: block;
+  width: calc(171% + 1.3px);
+  height: 160px;
+}
+
+.custom-shape-divider-top-1657077479 .shape-fill {
+  fill: #448FFF;
+}
+
+//second wave
+.custom-shape-divider-bottom-1657077939 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  top: 2px;
+}
+
+.custom-shape-divider-bottom-1657077939 svg {
+  position: relative;
+  display: block;
+  width: calc(124% + 1.3px);
+  height: 138px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1657077939 .shape-fill {
+  fill: #448FFF;
+}
+
+
+// shape triangle
+.custom-shape-divider-bottom-1657078196 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1657078196 svg {
+  position: relative;
+  display: block;
+  width: calc(124% + 1.3px);
+  height: 138px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1657078196 .shape-fill {
+  fill: #16d485;
+}
+
+
+// shape triangle buttom
+.custom-shape-divider-top-1657078440 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1657078440 svg {
+  position: relative;
+  display: block;
+  width: calc(210% + 1.3px);
+  height: 152px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1657078440 .shape-fill {
+  fill: #16d485;
+}
+
+
+// 1st shape triangle blue
+.custom-shape-divider-bottom-1657079331 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1657079331 svg {
+  position: relative;
+  display: block;
+  width: calc(286% + 1.3px);
+  height: 177px;
+}
+
+.custom-shape-divider-bottom-1657079331 .shape-fill {
+  fill: #16d485;
+}
+
+// 2nd shape triangle blue
+.custom-shape-divider-top-1657079385 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1657079385 svg {
+  position: relative;
+  display: block;
+  width: calc(225% + 1.3px);
+  height: 138px;
+}
+
+.custom-shape-divider-top-1657079385 .shape-fill {
+  fill: #16d485;
+}
+
+
+// mision vision
+.custom-shape-divider-top-1657116290 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1657116290 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1657116290 .shape-fill {
+  fill: #448FFF;
+}
+
+
+
+// triangle arriba
+.custom-shape-divider-bottom-1657119957 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1657119957 svg {
+  position: relative;
+  display: block;
+  width: calc(242% + 1.3px);
+  height: 163px;
+}
+
+.custom-shape-divider-bottom-1657119957 .shape-fill {
+  fill: #16d485;
+}
+
+
+//triangle abajo
+
+.custom-shape-divider-top-1657120055 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1657120055 svg {
+  position: relative;
+  display: block;
+  width: calc(221% + 1.3px);
+  height: 109px;
+}
+
+.custom-shape-divider-top-1657120055 .shape-fill {
+  fill: #16d485;
+}
+
+
+// curva
+.custom-shape-divider-top-1657138546 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1657138546 svg {
+  position: relative;
+  display: block;
+  width: calc(133% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1657138546 .shape-fill {
+  fill: #16d485;
+}

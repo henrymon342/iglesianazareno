@@ -1,0 +1,259 @@
+
+
+.bg_blanco{
+  background: rgb(255, 255, 255);
+}
+
+.titulo_calendar{
+  font-size: 40px;
+  // font-family: 'Lalezar', cursive;
+  padding: 2em 2em 0 2em;
+  color: #7055a1;
+}
+
+.mitad{
+  align-items: center;
+  width: 70%;
+  padding: 0 10% 50px 10%;
+}
+
+
+.deslizador{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 1em 4em 1em 4em;
+
+  .centrado{
+      border: 2px solid #6441a5;
+      color: #6441a5;
+    }
+
+}
+
+
+.textocentrado{
+  text-align: center;
+}
+
+.centrado{
+  width: 100%;
+  text-align: center;
+
+  h3{
+    padding: .5em;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+
+.izquierda{
+
+  button{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon{
+      width: 100%;
+      height: 100%;
+
+      font-size: 36px;
+    }
+  }
+}
+
+.derecha{
+
+  button{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon{
+      width: 100%;
+      height: 100%;
+
+      font-size: 36px;
+    }
+  }
+}
+
+
+
+
+.sin_eventos{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.image_sin_eventos{
+  height: 70vh;
+  // background-image: url('/assets/bgs/no_events2.jpg');
+
+
+  width: auto;
+}
+
+
+.botones{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1em;
+  button{
+    width: 30%;
+    background-color: #6441a5;
+    border: none;
+    color: white;
+    padding: .5em 0;
+    text-align: center;
+    font-size: 18px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    span{
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+      font-weight: 500;
+      // color: #494949;
+
+
+    }
+
+    &:hover{
+      background-color: #ffffff;
+      // border: 1px solid #6441a5;
+      span {
+        color: #6441a5;
+      };
+    }
+
+  }
+}
+
+.botones2{
+  text-align: center;
+
+  .bloque_botones{
+    display: flex;
+    justify-content: space-around;
+
+    button{
+      width: 30%;
+      font-size: 18px;
+      padding: .2em 0;
+    }
+
+    .mes_ref{
+      font-size: 18px;
+      padding: .5em;
+    }
+  }
+}
+
+
+
+.mes_ref{
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+/* .sin_eventos::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -9;
+  border-radius: 0 0 10px 10px;
+  transition: .7s ease-in-out;
+
+} */
+
+
+.cont_events{
+  min-height: auto;
+}
+
+.texto_sin_eventos{
+  font-size: 40px;
+  margin-bottom: 0;
+  padding-left: 5%;
+  /* color: rgb(255, 255, 255); */
+  color: #494949;
+
+}
+
+
+.icon_sin_eventos{
+  font-size: 80px;
+  color: #494949;
+}
+
+
+/*  ESTILOS CALENDAR */
+
+h3 {
+  margin: 0 0 10px;
+}
+
+pre {
+  background-color: #80ffdf;
+  padding: 15px;
+}
+
+
+.bg_titulo{
+  background-image: url('/assets/bgs/bg_adoracion.jpg');
+
+  width: 100%;
+  height: 400px;
+  background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+  background-attachment: fixed;
+  padding: 6em;
+  text-align: center;
+  color: white;
+
+  &:before {
+    content:'';
+    position: absolute;
+          top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  .titulo{
+    font-size: 60px;
+    font-weight: 900;
+    position: relative;
+    // font-family: 'Lalezar', cursive;
+  }
+
+  .bloque_sub{
+    padding: 2em 0 0 0;
+    position: relative;
+
+    .sub_titulo{
+      font-size: 18px;
+      font-weight: 500;
+
+    }
+  }
+}

@@ -1,0 +1,152 @@
+
+
+
+
+<mat-drawer-container class="example-container" autosize >
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <mat-action-list class="action_list">
+
+      <mat-list-item class="item" routerLink="iglesias" rourterLinkActive="active">
+          <div class="content">
+            <div class="material-symbols-outlined item_icon">
+              church
+            </div>
+            <div class="item_texto">Iglesias</div>
+          </div>
+      </mat-list-item>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+        <mat-panel-title mat-list-item class="item" rourterLinkActive="active">
+        Ministerios
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+          <mat-list-item class="item" routerLink="ministerios" rourterLinkActive="active">
+            <div class="content">
+              <div class="material-symbols-outlined">
+                diversity_3
+              </div>
+              <div class="item_texto">JNI</div>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="item" routerLink="/ministerios/mni" rourterLinkActive="active">
+            <div class="content">
+              <div class="material-symbols-outlined">
+                volunteer_activism
+              </div>
+              <div class="item_texto">MNI</div>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="item" routerLink="/ministerios/miedd" rourterLinkActive="active">
+            <div class="content">
+              <div class="material-symbols-outlined">
+                auto_stories
+              </div>
+              <div class="item_texto">MIEDD</div>
+            </div>
+          </mat-list-item>
+
+      </mat-expansion-panel>
+
+      <mat-list-item class="item" routerLink="eventos" rourterLinkActive="active">
+        <div class="content">
+          <div class="material-symbols-outlined item_icon">
+            calendar_today
+          </div>
+          <div class="item_texto">Eventos</div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item class="item" routerLink="enquecreemos" rourterLinkActive="active">
+        <div class="content">
+          <div class="material-symbols-outlined item_icon">
+            health_and_safety
+          </div>
+          <div class="item_texto">En que creemos</div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item class="item" routerLink="recursos" rourterLinkActive="active">
+        <div class="content">
+          <div class="material-symbols-outlined item_icon">
+            dataset
+          </div>
+          <div class="item_texto">Recursos</div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item class="item" routerLink="peticiones" rourterLinkActive="active">
+        <div class="content">
+          <div class="material-symbols-outlined item_icon">
+            real_estate_agent
+          </div>
+          <div class="item_texto">Peticiones de oración</div>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item class="item" routerLink="ofrendas" rourterLinkActive="active">
+        <div class="content">
+          <button mat-raised-button
+            color="primary"
+            [routerLink]="['/ofrendas/']">
+            Donar
+          </button>
+        </div>
+      </mat-list-item>
+
+    </mat-action-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar class="elevacion">
+
+      <button mat-icon-button class="example-icon"
+              aria-label="Example icon-button with menu icon"
+              (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div class="titulo">
+        <span><h1>Iglesia del Nazareno Distrito La Paz</h1></span>
+      </div>
+      <!-- <button class="btn_ofrenda" mat-raised-button
+        color="primary"
+        [routerLink]="['/ofrendas/']">
+        Donar
+      </button> -->
+      <div class="btn_ofrenda" color="accent" [routerLink]="['/ofrendas/']">
+        <span>donar</span>
+      </div>
+
+      <ng-container *ngIf="!auth_service.loggedIn(); else logout">
+        <button mat-icon-button class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="goToLogin()"
+              matTooltip="login"
+              >
+          <mat-icon>input</mat-icon>
+        </button>
+      </ng-container>
+
+      <ng-template #logout>
+        <button mat-icon-button class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="auth_service.logout()"
+              matTooltip="cerrar sesión"
+              >
+              <span class="material-symbols-outlined">
+                logout
+              </span>
+        </button>
+      </ng-template>
+
+    </mat-toolbar>
+  </div>
+
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
+</mat-drawer-container>

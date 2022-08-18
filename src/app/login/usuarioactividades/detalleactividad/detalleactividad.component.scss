@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+
+.titulo{
+  padding: 2em 0 1em 0;
+  text-align: center;
+}
+
+.titulograde{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}
+
+.container{
+  margin: 2em 15%;
+  padding: 2em 10em;
+  height: auto;
+}
+
+
+table {
+  width: 100%;
+}
+
+
+.fila{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  justify-content: baseline;
+  margin: 0 0 2em 0;
+
+  .horario{
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.left{
+  text-align: left;
+}

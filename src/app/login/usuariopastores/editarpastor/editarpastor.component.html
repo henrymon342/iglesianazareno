@@ -1,0 +1,241 @@
+<div class="animate__animated animate__fadeIn">
+  <h3 class="titulo titulograde"> EDITAR PASTOR </h3>
+
+<div class="container ">
+  <form class="example-form" [formGroup]="form" (change)="isGood()">
+
+    <div class="fila">
+      <label class="label">Nombre </label>
+      <mat-form-field class="inputnombre" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="name"
+              type="text"
+              matInput
+              placeholder="name"
+              >
+      </mat-form-field>
+    </div>
+
+    <div class="fila">
+      <label class="label"> Categoria </label>
+      <mat-radio-group
+        class="radio_group"
+        formControlName="category"
+        (change)="isGood()"
+        >
+        <mat-card class="radiocard" *ngFor="let min of CATEGORIES">
+          <mat-radio-button [value]=min>
+          </mat-radio-button>
+          <span>{{ min }}</span>
+        </mat-card>
+
+      </mat-radio-group>
+    </div>
+
+
+    <div class="fila">
+      <label class="label" *ngIf="form.value.category != 'Distrital'"> Año de ordenación </label>
+      <label class="label" *ngIf="form.value.category == 'Distrital'"> Año de 1ra licencia recibida </label>
+      <!-- <label class="label"> Año de ordenación </label> -->
+      <mat-form-field class="inputnombre"  appearance="fill" >
+        <mat-label>Año</mat-label>
+        <mat-select formControlName="year" (selectionChange)='isGood()' >
+          <mat-option *ngFor="let an of ANOS" [value]='an.ano'>
+            {{ an.ano }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <mat-card class="card_text">
+      <h4>{{ this.form.value.membresia }}</h4>
+    </mat-card>
+
+    <div class="fila">
+      <label class="label"> Membresia </label>
+      <mat-radio-group
+        class="radio_group"
+        formControlName="tipomen"
+        [(ngModel)]="tipomembresia"
+        (change)="choose($event)"
+        >
+
+        <mat-card class="radiocard">
+          <mat-radio-button  value='Iglesia'>
+          </mat-radio-button>
+          <span> Iglesia </span>
+        </mat-card>
+
+        <mat-card class="radiocard">
+          <mat-radio-button  value='Otro'>
+          </mat-radio-button>
+          <span> Otro </span>
+        </mat-card>
+
+      </mat-radio-group>
+    </div>
+
+
+    <div class="fila" *ngIf="tipomembresia == 'Iglesia'">
+      <label class="label">Es miembro en </label>
+      <mat-form-field appearance="fill" class="box_select" >
+        <mat-label>iglesia</mat-label>
+        <mat-select
+                    class="select"
+                    formControlName="membresia"
+                    (selectionChange)='isGood()'
+                     >
+          <mat-option *ngFor="let iglesia of IGLESIAS" [value]=iglesia>
+            {{ iglesia }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="fila" *ngIf="tipomembresia != 'Iglesia'">
+      <label class="label">Estado de membresia </label>
+      <mat-form-field class="box_input" appearance="fill">
+        <mat-label>estado</mat-label>
+        <input formControlName="membresia"
+              type="text"
+              matInput
+              placeholder="name"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+    <mat-card class="card_text">
+      <h4>{{ this.form.value.lugardeministerio }}</h4>
+    </mat-card>
+
+
+    <div class="fila radios">
+      <label class="label"> Lugar de ministerio </label>
+      <mat-radio-group
+        class="radio_group"
+        formControlName="tipomin"
+        [(ngModel)]="tipolugarmin"
+        (change)="choose1($event)"
+        >
+
+        <mat-card class="radiocard">
+          <mat-radio-button  value='Iglesia'>
+          </mat-radio-button>
+          <span> Iglesia </span>
+        </mat-card>
+
+        <mat-card class="radiocard">
+          <mat-radio-button  value='Otro'>
+          </mat-radio-button>
+          <span> Otro </span>
+        </mat-card>
+
+      </mat-radio-group>
+    </div>
+
+
+    <div class="fila" *ngIf="tipolugarmin == 'Iglesia'">
+      <label class="label">Lugar de servicio en </label>
+      <mat-form-field appearance="fill" class="box_select" >
+        <mat-label>iglesia</mat-label>
+        <mat-select
+                    class="select"
+                    formControlName="lugardeministerio"
+                    (selectionChange)='isGood()'
+                     >
+          <mat-option *ngFor="let iglesia of IGLESIAS" [value]=iglesia>
+            {{ iglesia }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="fila" *ngIf="tipolugarmin != 'Iglesia'">
+      <label class="label">Estado de servicio </label>
+      <mat-form-field class="box_input" appearance="fill">
+        <mat-label>estado</mat-label>
+        <input formControlName="lugardeministerio"
+              type="text"
+              matInput
+              placeholder="name"
+              class="input"
+              >
+      </mat-form-field>
+    </div>
+
+
+
+  <div class="fila">
+    <label class="label"> Área </label>
+    <mat-form-field class="area" appearance="fill" >
+      <mat-label>Area</mat-label>
+      <mat-select  formControlName="area" (selectionChange)='isGood()'>
+        <mat-option value="{{item.area}}" *ngFor="let item of AREAS">{{ item.area }} ({{ item.sigla }})</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+  <div class="fila" *ngIf="pastor.category == 'Presbitero'">
+    <label class="label"> Grado académico </label>
+  </div>
+  <div class="lista_titulos" *ngIf="pastor.category == 'Presbitero'">
+    <mat-checkbox *ngFor="let titulo of listaTitulos" [checked]="titulo.valor"  >{{titulo.nombre}}</mat-checkbox>
+  </div>
+
+
+
+  <div class="fila">
+    <label class="label">Imagen pastor :</label>
+
+    <ng-container *ngIf="image == undefined">
+      <mat-spinner></mat-spinner>
+    </ng-container>
+    <ng-container *ngIf="image">
+    <img class="imagen" [src]="'http://localhost:3000/'+ image.imagePath" alt="">
+    </ng-container>
+  </div>
+
+  <div class="fila">
+    <label class="label">Editar imagen de pastor :</label>
+    <ngx-dropzone (change)="pastorImageSelected($event)">
+      <ngx-dropzone-label>Seleccionar imagen!</ngx-dropzone-label>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of filesPas" multiple="false" [file]="f">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+  </div>
+
+</form>
+
+
+<ng-container *ngIf="!hasMaterias && pastor.category == 'Distrital'">
+  <button mat-button class="titulorecord titulo" *ngIf="form.value.category=='Distrital'" [routerLink]="['/login/usuariopastores/aditarrecord', {id:pastor.id, tip:'editar'}]">EDITAR RECORD ACADÉMICO</button>
+    <!-- <div  class="example-button-container"> -->
+      <!-- <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+              [routerLink]="['/login/usuariopastores/aditarrecord', {id:pastor.id, tip:'editar'}]">
+        Editar record
+        <mat-icon >
+          more_horiz
+          </mat-icon>
+      </button> -->
+    <!-- </button> -->
+  </ng-container>
+
+
+
+<div class="bg-boton">
+  <button mat-raised-button color="primary"
+          (click)="alertaPastor()"
+          class="boton"
+          >
+          Editar</button>
+</div>
+</div>
+
+</div>

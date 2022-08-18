@@ -1,0 +1,175 @@
+
+
+.section1{
+  position: absolute;
+  color: white;
+  padding: 2em;
+  z-index: -10;
+
+  .zona{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.836);
+  }
+}
+
+.section2{
+  height: 400px;
+}
+
+.section3{
+  text-align: center;
+
+
+
+.imgpastor{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: .8s ease-in-out;
+  background-color: #293241;
+  color: white;
+  &:hover{
+    border: 1 solid black;
+    border-radius: 0;
+    transform: perspective(500px) scaleZ(2) translateZ(20px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    color: #293241;
+  }
+}
+
+.nombrepastor{
+  padding: 1em 0;
+}
+
+
+
+
+}
+
+.section4{
+  width: 100%;
+  height: auto;
+
+
+  .servicios{
+    padding-bottom: 0;
+  }
+
+  .flex{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    padding: 1em;
+    .card{
+      text-align: center;
+      width: 100%;
+      // border: 1px solid red;
+      padding-bottom: 4em;
+      transition: .4s ease-in-out;
+
+      background-color: #293241;
+      color: white;
+
+
+
+      .reunion{
+        font-size: 24px;
+        font-weight: 400;
+        padding: 2em;
+
+
+
+      }
+
+
+
+      &:hover{
+        border: 1 solid black;
+        transform: perspective(500px) scaleZ(1.5) translateZ(-20px);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        background-color: rgb(243, 243, 243);
+        color: #293241;
+      }
+    }
+  }
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 30%;
+  grid-gap: 1em;
+  padding: 1em;
+  .data{
+    text-align: center;
+    transition: .4s ease-in-out;
+
+    background-color: #db2763;
+    color: white;
+
+    .rango{
+      font-size: 16px;
+      font-weight: 400;
+      padding: 2em;
+    }
+
+    &:hover{
+      border: 1 solid black;
+      transform: perspective(500px) scaleZ(1.5) translateZ(-20px);
+      box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
+      background-color: #f3f3f3;
+      color: rgb(73, 73, 73);
+    }
+  }
+}
+
+
+
+
+
+.dia{
+  padding: 1em;
+}
+
+.horario{
+  font-weight: 400;
+}
+
+.denominacion{
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.829);
+  font-weight: 600;
+
+}
+
+.nombre{
+  font-size: 93px;
+}
+
+.imgiglesia{
+  width: 100%;
+  position: relative;
+  z-index: -20;
+
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.subtitulo{
+  font-size: 24px;
+  padding: 2em;
+}
+
+
+
+.icono{
+  font-size: 32px;
+}
+
+.funda{
+  font-size: 32px;
+
+}

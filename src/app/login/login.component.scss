@@ -1,0 +1,75 @@
+
+
+
+.container{
+  width: 100vw;
+  height: 88.9%;
+  background: url('/assets/waves/blob3.svg') no-repeat center center fixed;
+
+  background-size: cover;
+  position: absolute;
+  z-index: -10;
+  display: flex;
+  flex-direction: column;
+
+  .logo{
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .imagen{
+      margin: 1em 1em;
+      width: 5em;
+      // height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+  }
+
+  .bloque{
+    width: 100vw;
+    height: 70vw;
+    text-align: center;
+
+    .titulo{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+      padding: .5em 0 .5em 0;
+    }
+
+    .text{
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .bloque2{
+      .example-form{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .ancho{
+          padding: 1em;
+          width: 25em;
+        }
+
+      }
+
+      .bg-boton{
+
+        padding: 1em;
+        text-align: end;
+      }
+    }
+
+}
+
+
+
+.wrong{
+  color: rgb(230, 95, 95);
+}
+

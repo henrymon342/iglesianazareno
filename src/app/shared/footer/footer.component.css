@@ -1,0 +1,50 @@
+
+
+.bgtitulo{
+
+  background-color: #D3D3D3;
+}
+
+.derechosreservados{
+
+  background-color: #686868;
+  width: 100%;
+  height: 50px;
+  color: white;
+
+}
+
+.textocopy{
+  font-size: 10px;
+}
+
+.contacto{
+  width: 100%;
+  height: 250px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.centrado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .segundaparte{
+  background-color: aquamarine;
+} */
+
+.textocontacto{
+  padding: 10px 0;
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.direccion{
+  padding: 5px 10px;
+  font-size: 14px;
+
+}

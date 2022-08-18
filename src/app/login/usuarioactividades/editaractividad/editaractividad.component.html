@@ -1,0 +1,282 @@
+
+<div class="animate__animated animate__fadeIn">
+  <div class="titulo1"> EDITAR ACTIVIDAD </div>
+
+<div class="container elevacion">
+
+    <form class="form" [formGroup]="form" (change)="validarForm()">
+
+      <div class="fila">
+        <div class="ministerio">MINISTERIO</div>
+        <mat-radio-group aria-labelledby="example-radio-group-label"
+                        class="radio_group_ver"
+                        formControlName="ministerio"
+                        (change)="validarForm()">
+          <mat-radio-button class="radio_botons" *ngFor="let min of MINISTERIOS" [value]="min">
+            {{min}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+
+      <div class="fila">
+        <label class="label">TÍTULO</label>
+        <mat-form-field class="field_input" appearance="fill">
+          <input formControlName="titulo"
+                type="text"
+                matInput
+                placeholder="titulo"
+                class="input"
+                >
+        </mat-form-field>
+      </div>
+
+
+      <div class="fila">
+        <div class="label">MODALIDAD</div>
+        <mat-radio-group
+                        class="radio_group_hor"
+                        formControlName="modalidad"
+                        (change)="validarForm()"
+                        [(ngModel)]="current_modality">
+          <mat-radio-button class="radio_botons" *ngFor="let mod of MODALIDADES" [value]="mod" >
+            {{mod}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+      <div class="fila">
+        <div class="texto_sectado"> LUGAR: {{ this.form.value.lugar }} </div>
+
+        <button mat-raised-button
+        color="primary"
+        (click)="onLugar = !onLugar"
+                >Editar lugar</button>
+      </div>
+
+      <div class="fila">
+
+        <ng-container *ngIf="current_modality == 'PRESENCIAL' && onLugar">
+          <div class="label"> LUGAR </div>
+
+          <mat-radio-group
+                          class="radio_group_hor"
+                          formControlName="presencial"
+                          (change)="validarForm()"
+                          [(ngModel)]="current_place">
+            <mat-radio-button class="radio_botons" *ngFor="let lug of LUGARES" [value]="lug">
+              {{ lug }}
+            </mat-radio-button>
+          </mat-radio-group>
+
+          <ng-container *ngIf="current_place == 'Alguna iglesia'">
+            <mat-form-field appearance="fill">
+              <mat-label>Iglesias</mat-label>
+              <mat-select  class="select"
+                           formControlName="lugar_iglesia"
+                           (selectionChange)='validarForm()'>
+                <mat-option *ngFor="let iglesia of IGLESIAS" [value]=iglesia>
+                  {{ iglesia }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
+
+          <ng-container *ngIf="current_place == 'Otro lugar'">
+            <mat-form-field class="field_input" appearance="fill">
+              <input formControlName="lugar_otro"
+                    type="text"
+                    matInput
+                    placeholder="Lugar"
+                    class="input"
+                    >
+            </mat-form-field>
+          </ng-container>
+
+        </ng-container>
+
+        <ng-container *ngIf="current_modality == 'VIRTUAL' && onLugar">
+          <div class="label"> PLATAFORMA </div>
+
+          <mat-radio-group
+                        class="radio_group_ver"
+                        formControlName="virtual"
+                        (change)="validarForm()"
+                        [(ngModel)]="current_plataforma">
+          <mat-radio-button class="radio_botons" *ngFor="let mod of PLATAFORMAS" [value]="mod" >
+            {{mod}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <ng-container *ngIf="current_plataforma == 'Otro'">
+          <mat-form-field class="field_input" appearance="fill">
+            <input formControlName="otro"
+                  type="text"
+                  matInput
+                  placeholder="Lugar"
+                  class="input"
+                  [(ngModel)]="current_plataforma_input"
+                  >
+          </mat-form-field>
+        </ng-container>
+
+
+        </ng-container>
+      </div>
+
+
+
+      <div class="fila">
+        <label class="label">ENCARGADO(s)</label>
+        <mat-form-field class="field_input" appearance="fill">
+          <input formControlName="encargado"
+                type="text"
+                matInput
+                placeholder="encargado"
+                class="input"
+                [(ngModel)]="nuevo_encargado"
+                (keyup.Enter)="adEncargado()"
+                >
+        </mat-form-field>
+
+
+
+        <mat-nav-list class="lista">
+          <mat-list-item *ngFor="let encargado of encargados; let i = index">
+             <a matLine >{{ encargado }}</a>
+             <button mat-icon-button >
+                <mat-icon (click)="borrarItemEncargado(i)">cancel</mat-icon>
+             </button>
+          </mat-list-item>
+        </mat-nav-list>
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="fila">
+
+        <div class="label">FECHA </div>
+        <mat-radio-group
+                        class="radio_group_hor"
+                        formControlName="tipofecha"
+                        (change)="validarForm()"
+                        [(ngModel)]="current_type_date">
+          <mat-radio-button class="radio_botons" *ngFor="let mod of TIPOSFECHA" [value]="mod" >
+            {{mod}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <ng-container *ngIf="current_type_date == 'Solo un día'">
+
+          <mat-form-field class="field_date" appearance="fill" >
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker"
+                            formControlName="fecha_single"
+                            (dateChange)="validarForm()" >
+            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker
+
+                            ></mat-datepicker>
+          </mat-form-field>
+
+        </ng-container>
+
+
+        <ng-container *ngIf="current_type_date == 'Varios días'">
+
+          <mat-form-field class="field_two_dates" appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker"  >
+              <input matStartDate placeholder="Start date" (dateChange)="validarForm()" formControlName="fechaini">
+              <input matEndDate placeholder="End date" (dateChange)="validarForm()" formControlName="fechafin">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+
+        </ng-container>
+
+      </div>
+
+
+
+
+      <div class="fila">
+        <div class="label"> HORA </div>
+
+        <div class="horario">
+          <mat-form-field class="marca" appearance="outline">
+            <mat-label>Hora Inicio </mat-label>
+            <input formControlName="horaini"
+                   type="text"
+                   matInput
+                   placeholder="10:00"
+                   matTimepicker
+                   (timeChange)="validarForm()"
+                   >
+          </mat-form-field>
+
+          <mat-form-field class="marca" appearance="outline">
+            <mat-label>Hora Fin </mat-label>
+            <input formControlName="horafin"
+                   type="text"
+                   matInput
+                   placeholder="13:00"
+                   matTimepicker
+                   (timeChange)="validarForm()"
+                   >
+                   <mat-hint>(opcional)</mat-hint>
+          </mat-form-field>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="fila">
+        <label class="label">DESCRIPCIÓN</label>
+        <mat-form-field class="field_input" appearance="fill">
+          <textarea
+                    matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="8"
+                    formControlName="descripcion"
+                    placeholder="descripcion"></textarea>
+
+        </mat-form-field>
+      </div>
+
+    </form>
+
+    <div class="acciones">
+      <button mat-raised-button
+              color="primary"
+              (click)="editarActividad()"
+              >Editar</button>
+
+    </div>
+
+
+    <!-- <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [dateClass]="dateClass"
+                    [(selected)]="selected"
+                    (selectedChange)="dateChanged($event)"
+                    #picker
+
+                    ></mat-calendar>
+    </mat-card>
+    <p>Selected date: {{selected}}</p> -->
+
+</div>
+
+</div>

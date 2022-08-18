@@ -1,0 +1,92 @@
+
+
+<div class="container animate__animated animate__fadeIn">
+  <section class="bg_titulo">
+    <h3 class="titulo"> QUEREMOS ORAR POR TU NECESIDAD</h3>
+    <h6 class="bloque_sub">
+      <p class="sub_titulo">
+        Creemos en el principio bíblico de orar los unos por los otros.
+      </p>
+      <p class="sub_titulo">
+        Dejanos tu petición debajo.
+      </p>
+    </h6>
+  </section>
+
+
+  <section class="bg_versiculo">
+    <p class="versiculo">
+      Así que recomiendo, ante todo, que se hagan plegarias, oraciones, súplicas y acciones de gracias por todos.
+    </p>
+    <p class="cita">
+      1 Timoteo 2:1
+    </p>
+
+    <div class="boton_ver_peticiones" [routerLink]="['/listapeticiones']">
+      <h5>ver peticiones</h5>
+    </div>
+  </section>
+
+
+  <section class="peticiones">
+    <h3 class="peticiones_title"> Pedidos de oración </h3>
+
+    <form class="form" [formGroup]="formdata" (change)="isGood()">
+
+
+      <div class="grupo">
+        <mat-form-field class="nombre" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" placeholder="Placeholder">
+        </mat-form-field>
+
+        <mat-form-field class="apellido" appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="apellido" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+
+      <div class="grupo2">
+        <mat-form-field class="correo" appearance="outline">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="email" formControlName="correo" placeholder="Placeholder">
+        </mat-form-field>
+
+        <mat-form-field class="ciudad" appearance="outline">
+          <mat-label>Ciudad</mat-label>
+          <input matInput formControlName="ciudad" placeholder="Placeholder">
+        </mat-form-field>
+
+        <mat-form-field class="pedido" appearance="outline">
+          <mat-label>Su pedido de oración</mat-label>
+          <textarea matInput placeholder="Placeholder" formControlName="peticion"></textarea>
+        </mat-form-field>
+
+
+        <ngx-recaptcha2 #recaptcha
+                        [siteKey]="siteKey"
+                        formControlName="recaptcha"
+                        (success)="handleSuccess($event)">
+
+        </ngx-recaptcha2>
+
+      </div>
+
+
+
+
+    </form>
+
+
+    <section class="botones">
+      <button mat-raised-button
+              color="primary"
+              (click)="send()"
+              [disabled]="isDisabled">Enviar</button>
+    </section>
+
+  </section>
+
+</div>
+
+<app-footer></app-footer>

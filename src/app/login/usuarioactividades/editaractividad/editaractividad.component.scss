@@ -1,0 +1,119 @@
+@use '@angular/material' as mat;
+
+.titulo1{
+  padding: 2em 2em;
+  font-weight: bold;
+  text-align: left;
+  font-size: x-large;
+}
+
+
+.container{
+  height: auto;
+  width: auto;
+  background-color: white;
+  padding: 2em 20%;
+
+  .form{
+
+    .fila:nth-child(odd) {
+      background: rgb(245, 245, 245);
+    }
+
+    .fila{
+      display: grid;
+      padding-bottom: 24px;
+      .label{
+        padding: 6px;
+      }
+      .field_input{
+        width: 50%;
+        justify-self: center;
+      }
+
+      .field_date{
+        width: 30%;
+        justify-self: center;
+
+      }
+
+      .field_two_dates{
+        width: 60%;
+        justify-self: center;
+      }
+
+      .field_input_desc{
+        width: 80%;
+        justify-self: center;
+      }
+
+      .horario{
+        display: flex;
+        justify-content: space-evenly;
+
+        .marca{
+          width: 10em;
+        }
+      }
+
+      .lista{
+        min-height: 4em;
+       height: auto;
+       background: rgb(236, 236, 236);
+      }
+
+
+    }
+
+
+  }
+}
+
+.elevacion {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+}
+
+.radio_group_ver{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  .radio_botons{
+    padding: .5em;
+  }
+}
+
+.radio_group_hor{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .radio_botons{
+    padding: .5em;
+  }
+}
+
+.acciones{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.texto_sectado{
+  padding: 2em 1em;
+}
+
+button.jni {
+  background: rgb(77, 64, 255);
+  border-radius: 100%;
+}
+
+button.mni {
+  background: rgb(255, 182, 47);
+  border-radius: 100%;
+}
+
+
