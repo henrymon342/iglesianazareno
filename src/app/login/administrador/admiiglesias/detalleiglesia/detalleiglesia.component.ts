@@ -45,7 +45,8 @@ export class DetalleiglesiaComponent implements OnInit {
     this.getImagenIglesia(this.id);
     if(this.ruta_imagen){
       console.log('existe');
-      this.ruta_imagen = 'http://localhost:3000/'+ this.image.imagePath;
+      this.ruta_imagen = 'https://serveridn.herokuapp.com/'+ this.image.imagePath;
+      // this.ruta_imagen = 'http://localhost:3000/'+ this.image.imagePath;
     }else{
       console.log('no existe');
       this.ruta_imagen = '/assets/imagenes/joven.jpg';

@@ -8,13 +8,15 @@
 
 <section class="section2">
   <!-- src="/assets/imagenes/joven.jpg" -->
-  <img class="imgiglesia" [src]="'http://localhost:3000/'+ imageIglesia.imagePath"  alt="imagen">
+  <img class="imgiglesia" [src]="'https://serveridn.herokuapp.com/'+ imageIglesia.imagePath" alt="">
+  <!-- <img class="imgiglesia" [src]="'http://localhost:3000/'+ imageIglesia.imagePath"  alt="imagen"> -->
 </section>
 
 <section class="section3">
   <h5 class="subtitulo">PASTOR</h5>
   <!-- src="/assets/imagenes/joven.jpg" -->
-  <img class="imgpastor"  [src]="'http://localhost:3000/'+ imagePastor.imagePath" alt="imagen">
+  <img class="imgpastor" [src]="'https://serveridn.herokuapp.com/'+ imageIglesia.imagePath" alt="">
+  <!-- <img class="imgpastor"  [src]="'http://localhost:3000/'+ imagePastor.imagePath" alt="imagen"> -->
   <p class="nombrepastor">{{ pastor.name }}</p>
 </section>
 
