@@ -119,18 +119,21 @@ export class CrearpastorComponent implements OnInit {
 
 
   validar(arr: any){
-    console.log('nombre', arr.name.status);
+    console.log('name', arr.name.status);
     console.log('category', arr.category.status);
     console.log('year', arr.year.status);
     console.log('area', arr.area.status);
     console.log('membresia', arr.membresia.status);
+    console.log('lugardeministerio', arr.lugardeministerio.status);
+    console.log('titulos', arr.titulos.status);
+    console.log('tipomen', arr.tipomen.status);
+    console.log('tipomin', arr.tipomin.status);
 
   }
 
 
   isGood(){
 
-    console.log(this.filePas);
 
 
 
@@ -158,6 +161,7 @@ export class CrearpastorComponent implements OnInit {
 
     }
 
+    this.validar(this.form.controls)
 
   }
 
