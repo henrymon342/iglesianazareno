@@ -45,7 +45,6 @@ registerLocaleData(localeEs);
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { StripePaymentFormModule } from '@mugan86/stripe-payment-form';
 import { ListapeticionesComponent } from './components/listapeticiones/listapeticiones.component';
 import { CardpeticionComponent } from './components/listapeticiones/cardpeticion/cardpeticion.component';
 import { OfrendasComponent } from './components/ofrendas/ofrendas.component';
@@ -83,7 +82,6 @@ import { AuthGuard } from './guards/auth.guard';
     SwiperModule,
     MaterialModule,
     HttpClientModule,
-    StripePaymentFormModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

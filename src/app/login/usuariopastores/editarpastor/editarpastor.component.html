@@ -197,7 +197,9 @@
       <mat-spinner></mat-spinner>
     </ng-container>
     <ng-container *ngIf="image">
-    <img class="imagen" [src]="'http://localhost:3000/'+ image.imagePath" alt="">
+    <img class="imagen" [src]="'https://serveridn.herokuapp.com/'+ image.imagePath" alt="">
+
+    <!-- <img class="imagen" [src]="'http://localhost:3000/'+ image.imagePath" alt=""> -->
     </ng-container>
   </div>
 

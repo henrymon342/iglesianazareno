@@ -3,24 +3,20 @@
   <div class="container">
 
     <form class="form elevacion" [formGroup]="form" (change)="isGood()">
-
       <h3 class="titulo">  CREAR PASTOR </h3>
 
       <div class="field">
         <label class="label"> CATEGORIA </label>
         <mat-radio-group
-          class="radio_group"
-          formControlName="category"
-          (change)="isGood()"
-          >
-            <mat-radio-button *ngFor="let cat of categories" [value]=cat>
-              <span>{{ cat }}</span>
+                        class="radio_group"
+                        formControlName="category"
+                        (change)="isGood()"
+                        >
+            <mat-radio-button *ngFor="let category of categories" [value]=category>
+              <span>{{ category }}</span>
             </mat-radio-button>
         </mat-radio-group>
       </div>
-
-
-
 
       <div class="field">
         <label class="label">NOMBRE DE PASTOR </label>
@@ -34,9 +30,6 @@
         </mat-form-field>
       </div>
 
-
-
-
       <div class="field">
         <label class="label" *ngIf="form.value.category != 'Distrital'"> AÑO DE ORDENACIÓN </label>
         <label class="label" *ngIf="form.value.category == 'Distrital'"> AÑO DE 1RA LICENCIA RECIBIDA </label>
@@ -48,7 +41,6 @@
             </mat-select>
           </mat-form-field>
       </div>
-
 
       <div class="field">
         <label class="label">LUGAR DE MEMBRESÍA</label>
@@ -83,9 +75,6 @@
           </mat-form-field>
       </div>
 
-
-
-
       <div class="field">
         <label class="label">LUGAR DE SERVICIO MINISTERIAL</label>
           <mat-radio-group class="radio_group"  formControlName="tipomen" [(ngModel)]="tipolugarmin" (change)="choose1($event)">
@@ -119,10 +108,6 @@
           </mat-form-field>
       </div>
 
-
-
-
-
     <div class="field">
       <label class="label"> ÁREA </label>
         <mat-form-field class="box_select" appearance="outline" >
@@ -143,8 +128,6 @@
           <p><mat-checkbox formControlName="doctorado">DOCTORADO</mat-checkbox></p>
         </section>
     </div>
-
-
 
     <div class="field imagen">
       <label class="label">IMAGEN PASTOR </label>
