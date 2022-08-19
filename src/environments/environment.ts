@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyBK7nOj9pETvE8FNl0JZ1UV_GJhkEPbew0",
-    authDomain: "learningfb-6f5c0.firebaseapp.com",
-    databaseURL: "https://learningfb-6f5c0.firebaseio.com",
-    projectId: "learningfb-6f5c0",
-    storageBucket: "learningfb-6f5c0.appspot.com",
-    messagingSenderId: "867567635020",
-    appId: "1:867567635020:web:1299cd41228653cace82e9",
-    measurementId: "G-RQZDLR7JBY"
-  },
   recaptcha: {
     siteKey: '6LeJyXcgAAAAAH9cef1bCWTzk10ePkwqAKOVfbcT'
   }
