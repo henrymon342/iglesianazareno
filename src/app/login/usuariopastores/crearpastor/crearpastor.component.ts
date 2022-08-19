@@ -57,8 +57,8 @@ export class CrearpastorComponent implements OnInit {
   filesPas: File[] = [];
   filePas: File;
 
-  tipomembresia: any;
-  tipolugarmin: any;
+  tipomembresia: any = '';
+  tipolugarmin: any = '';
 
   constructor( private fb: FormBuilder,
                private servicepastor: PastorService,
@@ -108,10 +108,9 @@ export class CrearpastorComponent implements OnInit {
       year: ['', [Validators.required]],
       area: ['', [Validators.required]],
       membresia: ['', [Validators.required]],
-      lugardeministerio: [''],
+      lugardeministerio: ['', [Validators.required]],
       titulos: [''],
-      tipomen: ['', [Validators.required]],
-      tipomin: ['', [Validators.required]],
+      tipomen: ['', [Validators.required]]
 
     })
   }
@@ -119,15 +118,14 @@ export class CrearpastorComponent implements OnInit {
 
 
   validar(arr: any){
-    console.log('name', arr.name.status);
     console.log('category', arr.category.status);
+    console.log('name', arr.name.status);
     console.log('year', arr.year.status);
     console.log('area', arr.area.status);
     console.log('membresia', arr.membresia.status);
     console.log('lugardeministerio', arr.lugardeministerio.status);
     console.log('titulos', arr.titulos.status);
     console.log('tipomen', arr.tipomen.status);
-    console.log('tipomin', arr.tipomin.status);
 
   }
 
@@ -253,19 +251,15 @@ export class CrearpastorComponent implements OnInit {
 
 
   choose(e: any){
-    console.log(this.tipomembresia);
-    console.log(e);
-
-    if( this.tipomembresia != 'Iglesia' ){
+    console.log(e.value);
+    if( e.value != 'Iglesia' ){
       this.form.controls['membresia'].setValue('');
     }
   }
 
   choose1(e: any){
-    console.log(this.tipolugarmin);
-    console.log(e);
-
-    if( this.tipolugarmin != 'Iglesia' ){
+    console.log(e.value);
+    if( e.value != 'Iglesia' ){
       this.form.controls['lugardeministerio'].setValue('');
     }
   }
