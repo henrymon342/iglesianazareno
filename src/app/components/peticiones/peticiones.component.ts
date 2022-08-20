@@ -30,7 +30,7 @@ export class PeticionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.siteKey = '6LeJyXcgAAAAAH9cef1bCWTzk10ePkwqAKOVfbcT';
+    this.siteKey = '6LfpYpAhAAAAAL18d9TNsggqPyvV1biMbNihs5QR';
   }
 
 
