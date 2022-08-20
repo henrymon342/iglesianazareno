@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { RecaptchaModule } from 'ng-recaptcha';
 import { PeticionService } from '../../services/peticion.service';
 import * as moment from 'moment';
+import Swal from 'sweetalert2';
 
 
 
@@ -30,7 +30,7 @@ export class PeticionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.siteKey = '6LfpYpAhAAAAAL18d9TNsggqPyvV1biMbNihs5QR';
+    this.siteKey = '6LdWdZAhAAAAAC5y91SqYwtKIQjqFj06Lby5bEV3';
   }
 
 
@@ -51,10 +51,27 @@ export class PeticionesComponent implements OnInit {
     if (this.formdata.valid) {
       console.log('formulario valido');
       this.formdata.controls['nombre'].setValue(this.formdata.value.nombre+' '+ this.formdata.value.apellido);
-      this.service_peticion.create(this.formdata.value).subscribe(res => {
-        console.log(res);
-
+      Swal.fire({
+        title: 'Esta seguro de enviar su petición de oración?',
+        showDenyButton: true,
+        // showCancelButton: true,
+        confirmButtonText: 'Si, lo estoy',
+        denyButtonText: `No`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.service_peticion.create(this.formdata.value).subscribe(res => {
+            console.log(res);
+          })
+          Swal.fire('Petición enviada!', '', 'success')
+        } else if (result.isDenied) {
+          // Swal.fire('Changes are not saved', '', 'info')
+        }
       })
+
+
+
+
     }else{
       console.log('formulario no valido');
     }

@@ -29,7 +29,6 @@
     "jspdf": "^2.5.1",
     "mat-timepicker": "^5.1.5",
     "moment": "^2.29.4",
-    "ng-recaptcha": "^9.0.0",
     "ngx-captcha": "^11.0.0",
     "ngx-dropzone": "^3.1.0",
     "ngx-paypal": "^9.0.0",

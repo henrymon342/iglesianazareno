@@ -33,7 +33,6 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
-import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
 
 import { LOCALE_ID } from '@angular/core';
 import localeEs from '@angular/common/locales/es';
