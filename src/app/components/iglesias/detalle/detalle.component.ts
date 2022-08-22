@@ -70,7 +70,7 @@ export class DetalleComponent implements OnInit {
 
   getUrl(){
 
-    const ur = `url(https://serveridn.herokuapp.com/${this.imageIglesia.imagePath})`;
+    const ur = `url(${this.imageIglesia.imagePath})`;
     // const ur = `url(http://localhost:3000/${this.imageIglesia.imagePath})`;
   }
 

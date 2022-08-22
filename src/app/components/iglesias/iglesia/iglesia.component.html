@@ -49,7 +49,7 @@
         <ng-container *ngIf="image">
         <img class="imgpas" [src]="'http://localhost:3000/'+ image.imagePath" alt="">
         </ng-container> -->
-        <img class="imgpas" [src]="'https://serveridn.herokuapp.com/'+ imagePastor.imagePath" alt="" *ngIf="imagePastor">
+        <img class="imgpas" [src]="imagePastor.imagePath" alt="" *ngIf="imagePastor">
         <!-- <img class="imgpas" src="/assets/imagenes/joven.jpg" alt="" *ngIf="!imagePastor"> -->
 
         <!-- <img class="imgpas" src="/assets/imagenes/joven.jpg" alt="nike"> -->
