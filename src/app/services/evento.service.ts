@@ -21,7 +21,7 @@ export class EventosService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/eventos/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/eventos/all`);
   }
 
   get(id: any): Observable<any> {

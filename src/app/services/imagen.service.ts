@@ -16,7 +16,7 @@ export class ImagenService {
 
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/images/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/images/all`);
   }
   get(id: any): Observable<any> {
     console.log(id);

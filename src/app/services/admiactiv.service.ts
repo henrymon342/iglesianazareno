@@ -21,7 +21,7 @@ export class AdmiActividadesService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/admieventos/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/admieventos/all`);
   }
   // get(id): Observable<any> {
   //   return this.http.get(`${this.baseUrl}/admieventos/find/${id}`);

@@ -19,7 +19,7 @@ export class IglesiaService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/iglesias/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/iglesias/all`);
   }
   get(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/iglesias/find/${id}`);

@@ -19,7 +19,7 @@ export class AsignaturaService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/asignaturas/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/asignaturas/all`);
   }
   get(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/asignaturas/find/${id}`);

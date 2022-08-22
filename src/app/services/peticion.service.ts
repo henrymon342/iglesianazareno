@@ -19,7 +19,7 @@ export class PeticionService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/peticiones/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/peticiones/all`);
   }
   get(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/peticiones/find/${id}`);

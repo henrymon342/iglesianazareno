@@ -19,7 +19,7 @@ export class AdmiusuarioService {
 
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/administrador/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/administrador/all`);
   }
 
   get(id:number): Observable<any> {

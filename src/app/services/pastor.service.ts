@@ -19,7 +19,7 @@ export class PastorService {
   }
 
   getAll() {
-    return this.http.get(`${this.baseUrl}/pastores/all`, {headers: this.headers});
+    return this.http.get(`${this.baseUrl}/pastores/all`);
   }
   get(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/pastores/find/${id}`);
